@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import home from "@/views/main/main.vue";
 import cmpTitle from "@/views/cmpUser/cmpTitle.vue";
 import cmpButton from "@/views/cmpUser/cmpButton.vue";
+import cmpModal from "@/views/cmpUser/cmpModal.vue";
 
 // 라우터 
 const routes = [
@@ -19,6 +20,11 @@ const routes = [
         path: "/cmpButton",
         name: "cmpButton",
         component: cmpButton,
+    },
+    {
+        path: "/cmpModal",
+        name: "cmpModal",
+        component: cmpModal,
     }  
 ]
 

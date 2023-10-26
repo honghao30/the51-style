@@ -25,7 +25,9 @@
           <el-menu-item index="2-2">
             <router-link to="/cmpTitle">타이틀</router-link>
           </el-menu-item>
-          <el-menu-item index="2-3">모달</el-menu-item>
+          <el-menu-item index="2-3">
+            <router-link to="/cmpModal">모달</router-link>
+          </el-menu-item>
           <el-menu-item index="2-4">말풍선</el-menu-item>  
         </el-sub-menu>  
         <el-sub-menu index="3">

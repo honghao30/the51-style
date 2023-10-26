@@ -6,18 +6,47 @@
     class="modal__wrap"
     >
       <div class="overlay-mask" @click="$emit('closeModal')"></div>
-        <slot></slot>
+      <div
+          class="modal__content"
+          :style="{ width: modalSize + 'px' }"
+      >
+        <div class="modal__content--inner">
+          <template v-if="modalTitle !== ''">
+            <div class="modal__content--title">
+              {{ modalTitle }}
+            </div>
+          </template>
+          <div class="modal__content--body">
+            <slot name="content"></slot>
+          </div>
+          <div class="modal__content--footer">
+            <slot name="footer"></slot>
+          </div>
+        </div>
+
+      </div>        
     </div>
   </transition>
 </template>
 
-<script>
-export default {
-  mounted() {
-    document.body.classList.add('modal-open')
+<script setup>
+const props = defineProps({
+  modalTitle: {
+    type: String,
+    default: ''
   },
-  beforeDestroy() {
-    document.body.classList.remove('modal-open')
+  modalSize: {
+    type: Number,
+    default: ''
   }
-}
+
+})  
+// export default {
+//   mounted() {
+//     document.body.classList.add('modal-open')
+//   },
+//   beforeDestroy() {
+//     document.body.classList.remove('modal-open')
+//   }
+// }
 </script>
