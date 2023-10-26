@@ -19,7 +19,9 @@
         </el-sub-menu>
         <el-sub-menu index="2">
           <template #title>컴포넌트</template>
-          <el-menu-item index="2-1">버튼</el-menu-item>
+          <el-menu-item index="2-1">
+            <router-link to="/cmpButton">버튼</router-link>
+          </el-menu-item>
           <el-menu-item index="2-2">
             <router-link to="/cmpTitle">타이틀</router-link>
           </el-menu-item>
