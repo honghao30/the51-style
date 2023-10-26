@@ -4,17 +4,15 @@
       @mouseleave="toolTipHide"
     >
        <span ref="trigger">
-        <ButtonCmp
-          type="btn-icon-tooltip"
-        >
-          <span class="irtext">툴팁</span>
-        </ButtonCmp>
+        <Button                    
+          iconName="btn-icon-tooltip"          
+        /> 
        </span>
       <div
         class="tool-tip__wrap"
         :style="{'width': width + 'px'}"
-        v-if="isActive"
-        :class="[mode, direction, elAlign, {'active': isActive}]"
+        v-if="isTooltipActive"
+        :class="[mode, direction, elAlign, {'active': isTooltipActive}]"
         ref="tooltipMsg"
       >
         <slot name="tooltip-message"></slot>
@@ -22,36 +20,39 @@
     </div>
 </template>
 
-<script>
-import ButtonCmp from '@/components/common/ButtonCmp.vue'
+<script setup>
+import { ref, nextTick } from 'vue'
+import { defineProps } from 'vue'
+import Button from '@/components/element/ButtonCmp.vue'
 
-export default {
-  props: {
-    direction: String,
-    width: String,
-    mode: String,
-    elAlign: String
+const props = defineProps({
+  width: {
+    type: Number,
+    default: ''
   },
-  components: {
-    ButtonCmp
+  mode: {
+    type: String,
+    default: ''
   },
-  data () {
-    return {
-      isActive: false,
-      selHeight: '',
-      topPos: '',
-      bottomPos: ''
-    }
+  direction: {
+    type: String,
+    default: ''
   },
-  methods: {
-    mouseover () {
-      this.isActive = true
-      this.$nextTick()
-    },
-    toolTipHide () {
-      // this.isActive = true
-      setTimeout(() => { this.isActive = false }, 300)
-    }
+  elAlign: {
+    type: String,
+    default: ''
   }
+})
+
+const isTooltipActive = ref(false)
+
+const mouseover = () => {
+  isTooltipActive.value = true
+  nextTick()
+}
+const toolTipHide = () => {
+  setTimeout(() => {
+    isTooltipActive.value = false
+  }, 300)
 }
 </script>

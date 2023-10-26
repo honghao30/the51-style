@@ -28,7 +28,9 @@
           <el-menu-item index="2-3">
             <router-link to="/cmpModal">모달</router-link>
           </el-menu-item>
-          <el-menu-item index="2-4">말풍선</el-menu-item>  
+          <el-menu-item index="2-4">
+            <router-link to="/cmpToolTip">말풍선</router-link>
+          </el-menu-item>  
         </el-sub-menu>  
         <el-sub-menu index="3">
           <template #title>자바스크립트</template>

@@ -2,7 +2,7 @@
   <button
     type="button"
     class="btn"
-    :class="[types, size]"
+    :class="[types, size, iconName]"
     :disabled="disabled"
     @click="$emit('click')"
     @mousedown="$emit('mousedown')"

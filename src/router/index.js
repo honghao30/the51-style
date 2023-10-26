@@ -3,6 +3,7 @@ import home from "@/views/main/main.vue";
 import cmpTitle from "@/views/cmpUser/cmpTitle.vue";
 import cmpButton from "@/views/cmpUser/cmpButton.vue";
 import cmpModal from "@/views/cmpUser/cmpModal.vue";
+import cmpToolTip from "@/views/cmpUser/cmpToolTip.vue";
 
 // 라우터 
 const routes = [
@@ -25,7 +26,12 @@ const routes = [
         path: "/cmpModal",
         name: "cmpModal",
         component: cmpModal,
-    }  
+    },
+    {
+        path: "/cmpToolTip",
+        name: "cmpToolTip",
+        component: cmpToolTip,
+    } 
 ]
 
 // 라우터 생성
