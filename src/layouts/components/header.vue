@@ -20,9 +20,11 @@
         <el-sub-menu index="2">
           <template #title>컴포넌트</template>
           <el-menu-item index="2-1">버튼</el-menu-item>
-          <el-menu-item index="2-1"><nuxt-link to="/elements/cmpTitle">타이틀</nuxt-link></el-menu-item>
-          <el-menu-item index="2-2">모달</el-menu-item>
-          <el-menu-item index="2-3">말풍선</el-menu-item>  
+          <el-menu-item index="2-2">
+            <router-link to="/cmpTitle">타이틀</router-link>
+          </el-menu-item>
+          <el-menu-item index="2-3">모달</el-menu-item>
+          <el-menu-item index="2-4">말풍선</el-menu-item>  
         </el-sub-menu>  
         <el-sub-menu index="3">
           <template #title>자바스크립트</template>
