@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 // 연결할 각 컴포넌트 import (src/views폴더 아래 컴포넌트들 생성해둠)
-import home from "@/views/main/index.vue";
+import home from "@/views/main/main.vue";
 import title from "@/views/cmp/cmpTitle.vue";
 // import SecondView from '../views/SecondView'
 // import ThirdView from '../views/ThirdView'
