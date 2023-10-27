@@ -30,17 +30,32 @@
           </el-menu-item>
           <el-menu-item index="2-4">
             <router-link to="/cmpToolTip">말풍선</router-link>
-          </el-menu-item>  
+          </el-menu-item>
+          <el-menu-item index="2-5">
+            <router-link to="/cmpAccordion">아코디언</router-link>
+          </el-menu-item>   
+          <el-menu-item index="2-6">
+            <router-link to="/cmpTapMenu">탭메뉴</router-link>
+          </el-menu-item>          
+          <el-menu-item index="2-7">
+            <router-link to="/cmpKoreaMap">SVG맵</router-link>
+          </el-menu-item>                 
         </el-sub-menu>  
         <el-sub-menu index="3">
-          <template #title>자바스크립트</template>
+          <template #title>스크립트</template>
           <el-menu-item index="3-1">swiper</el-menu-item>
+          <el-menu-item index="3-2">스크롤이벤트</el-menu-item>
+          <el-menu-item index="3-3">동영상 제어</el-menu-item>
         </el-sub-menu> 
         <el-sub-menu index="4">
           <template #title>미니게임</template>
           <el-menu-item index="4-1">롤렛</el-menu-item>
           <el-menu-item index="4-1">주차관리</el-menu-item>
-        </el-sub-menu>              
+        </el-sub-menu>
+        <el-sub-menu index="5">
+          <template #title>자료실</template>
+          <el-menu-item index="5-1">퍼블리싱 가이드</el-menu-item>          
+        </el-sub-menu>                     
       </el-menu>
     </div>
   </div>

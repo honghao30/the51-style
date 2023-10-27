@@ -18,7 +18,6 @@
       <div class="accordion__content"
         v-show="visible">
         <slot name="accordion-content"></slot>
-
       </div>
     </transition>
   </li>
