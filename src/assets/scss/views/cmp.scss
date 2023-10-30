@@ -1,5 +1,17 @@
 // 지도 컴포넌트
 // 칼라 테마 css 정의
+.korea-map {
+  position: relative;
+  .land__info--layer {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.9);
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 16px;
+      @include fontoption(16px,#000,500,20px);
+      white-space: nowrap;
+  }
+}
 .land {
   fill-opacity: 1;
   stroke:white;
@@ -27,3 +39,21 @@
 .bluest15 {fill:#B8DCFF;stroke:#FFFFFF;stroke-width:5;}
 .bluest16 {fill:#C5E2FF;stroke:#FFFFFF;stroke-width:5;}
 .bluest17 {fill:#D2E9FF;stroke:#FFFFFF;stroke-width:5;}
+
+.redst1{fill:#FF4A1A;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst2{fill:#FF5427;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst3{fill:#FF5E34;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst4{fill:#FF6941;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst5{fill:#FF734E;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst6{fill:#FF7D5A;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst7{fill:#FF8767;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst8{fill:#FF9174;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst9{fill:#FF9C81;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst10{fill:#FFA68E;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst11{fill:#FFB09B;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst12{fill:#FFBAA8;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst13{fill:#FFC4B5;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst14{fill:#FFCEC1;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst15{fill:#FFD9CE;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst16{fill:#FFD9CE;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+.redst17{fill:#FFEDE8;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}

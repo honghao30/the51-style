@@ -8,11 +8,30 @@
       지도 컴포넌트에 대한 가이드 입니다. <br>
       지도의 칼라등을 지정할 수 있습니다.
     </div>
-    <div style="text-align:center;padding: 50px 0;position: relative;">
-      <mapCmp        
-        :MapChartData="MapChartData"
-        :ColorType="ColorType"      
-      />
+    <Title 
+      :level="3" 
+      pageTitle="기본 예시"
+    />
+    <div class="map--wrap">
+      <div class="map-wrap">
+        <mapCmp        
+          :MapChartData="MapChartData"
+          :ColorType="ColorType"      
+        />
+      </div>
+      <div class="map-wrap">
+        <mapCmp        
+          :MapChartData="MapChartData"
+          :ColorType="ColorType2"      
+        />
+      </div>      
+    </div>
+    <Title 
+      :level="3" 
+      pageTitle="지역별 날씨"
+    />
+    <div style="padding: 50px 0;">
+      <router-link to="">지역별 날씨 API연동 페이지 이동</router-link>
     </div>
   </div>
 </template>
@@ -22,7 +41,7 @@ import { ref } from 'vue';
 import Title from "@/components/element/PageTitle.vue"
 import mapCmp from "@/components/svgmap/mapCmp.vue"
 
-const MapChartData = ref[
+const MapChartData = ref([
   {
     'area': '서울',
     'data': '100%',
@@ -108,7 +127,23 @@ const MapChartData = ref[
     'data': '39%',
     'id': 'KR-50'
   }
-]
+])
 const ColorType = ref('blue')
+const ColorType2 = ref('red')
 
 </script>
+
+<style>
+.map--wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  gap: 120px;
+  padding: 0 0 30px;
+}
+.map-wrap {
+  width: 280px;
+}
+</style>

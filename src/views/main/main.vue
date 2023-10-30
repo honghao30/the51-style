@@ -1,14 +1,11 @@
 <template>
   <div class="main-container">
     <el-card class="box-card main-weather">
-      <template #header>
-        <div class="card-header">
-          <span>안녕하세요?</span>
-          <el-button class="button" text>전국날씨</el-button>
-        </div>
-      </template>
       <div class="text item">
-        10월 30일 서울 날씨 입니다.<br>
+        안녕하세요?<br>
+        {{today}} 현재 시각 {{ current }} 서울 날씨 입니다.<br>
+        오늘은 {{ todayWeather  }}, 현재 온도는 {{ todaytemp }} °C,<br> 습도는 {{ todayhumidity }} 입니다.<br>
+        {{today}} 일출 {{ sunriseTimeIs  }}, 일몰 {{ sunsetTimeIs  }}
         여러분이 계신곳은 어떠신가요?
       </div>
     </el-card>    
@@ -44,24 +41,24 @@ import "swiper/components/pagination/pagination.scss"
 // install Swiper components
 SwiperCore.use([Navigation, Pagination, A11y])
 
-// import Weather from '@/api/getWeather'
 import axios from 'axios'
 import { ref } from 'vue'
 
-const Weather= async () => {
-  const RankBaseUrl = 'https://api.openweathermap.org/data/2.5/weather?q=';
-  const Mykey = '13b55b2bf5bf4b64df063ddbfe1f3c5c'
-  let citis = 'Seoul'
-  
-    axios
-    .get(`${RankBaseUrl}${citis}&APPID=${Mykey}&units=metric`,)
-    .then(res => {            
-        console.log(res.data)
+import { getWeathers } from '@/api/getWeather'
 
-    })
-    .catch(err => {
-        console.log(err.message);
-    })       
-}
-Weather ()
+const weatherData = getWeathers()
+const todayWeather = weatherData.todayWeather
+const todaytemp = weatherData.todaytemp
+const todaywind = weatherData.todaywind
+const todayhumidity = weatherData.todayhumidity
+const sunriseTimeIs = weatherData.sunriseTimeIs
+const sunsetTimeIs = weatherData.sunsetTimeIs
+const WeatherIcon = weatherData.WeatherIcon
+
+import { getTodayDate } from '@/utils/time'
+const [TodayDateFull, TodayData, currentTime] = getTodayDate()
+const today = TodayData
+const current = currentTime
+
+
 </script>
