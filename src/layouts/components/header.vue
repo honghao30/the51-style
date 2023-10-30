@@ -46,6 +46,9 @@
           <el-menu-item index="3-1">swiper</el-menu-item>
           <el-menu-item index="3-2">스크롤이벤트</el-menu-item>
           <el-menu-item index="3-3">동영상 제어</el-menu-item>
+          <el-menu-item index="3-4">
+            <router-link to="/cmpKoreaWeather">전국날씨</router-link>
+          </el-menu-item>          
         </el-sub-menu> 
         <el-sub-menu index="4">
           <template #title>미니게임</template>

@@ -31,7 +31,7 @@
       pageTitle="지역별 날씨"
     />
     <div style="padding: 50px 0;">
-      <router-link to="">지역별 날씨 API연동 페이지 이동</router-link>
+      <router-link to="/cmpKoreaWeather">지역별 날씨 API연동 페이지</router-link>
     </div>
   </div>
 </template>

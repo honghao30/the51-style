@@ -57,3 +57,136 @@
 .redst15{fill:#FFD9CE;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
 .redst16{fill:#FFD9CE;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
 .redst17{fill:#FFEDE8;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+
+
+// 아코디언
+.accordion-list__wrap {
+  border-top: 2px solid #BCBCBC;
+  border-bottom: 2px solid #ddd;
+  width: 100%;
+  .accordion__item {    
+    border-bottom: 1px solid #F0F0F0;
+    a.accordion__title {
+      position: relative;    
+      @include fontoption(14px,#000000,400,26px);
+      display: block;
+      padding: 17px 85px;
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 40px;
+        top: 40%;
+        transform: translateY(-50%);
+        width: 16px;
+        height:16px;
+        background-image: url('../assets/images/icon/icon_arrow_accordion.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        transform: rotate(180deg);
+        transition: all 0.3s;
+      }
+      &.isOpen {
+        &::after {      
+          transform: rotate(0deg);    
+          transition: all 0.3s;
+        }
+      } 
+      .accordion-cate {
+        position: absolute;
+        left: 40px;
+        top:50%;
+        transform: translateY(-50%);
+        @include fontoption(14px,#000000,500,24px)
+      }
+      .accordion-title__title:hover {
+        text-decoration: underline;
+      }
+      .ico-attach {
+        display: inline-block;
+        width:18px;
+        height:19px;
+        margin-left:5px;
+        position:relative;
+        top: 4px;
+        background:url('../assets/images/customer/ico_attach.png') no-repeat 50% 50%
+      } 
+    }
+  }
+  .accordion__content {
+    position: relative;
+    padding: 20px 40px 40px 82px;
+    background-color: #F8F8F8;
+    .accordion-cate {
+      position: absolute;
+      left: 40px;
+      top:20px;
+      @include fontoption(14px,#2F77FB,500,24px)
+    }  
+    .attach-area {
+      display: flex;
+      align-items: center;
+      border-bottom:1px solid #ddd;
+      padding:0  0 16px;
+      margin-bottom: 16px;
+      .attach-title {
+        display: inline-flex;
+        justify-content: space-between;
+        align-items: center;
+        flex: 0   0 113px;
+        padding-left: 14px;
+        @include fontoption(14px,#000000,500,26px);
+      }
+      .attach-list {
+        display: flex;
+        flex-direction: column;
+        padding:0 32px 0 0;
+        flex: auto;
+        position:relative;
+        gap: 12px;
+        padding-left:32px;
+        &:before {
+          content: '';
+            position:absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            display: inline-block;
+            height: 50%;
+            width: 1px;
+            background-color: #ddd;
+        }
+        a {
+          display: inline-flex;
+          align-items: center;
+          @include fontoption(14px,#000000,400,26px);
+          cursor: pointer;
+          &:hover {
+            text-decoration: underline;
+          }
+          .ico-download {
+            flex-shrink: 0;
+            display: inline-block;
+            width:24px;
+            height:24px;
+            flex-shrink: 0;
+            margin-left:8px;
+            background:url('../assets/images/customer/ico_download.png') no-repeat 50% 50%;
+          }
+        }
+      }
+    }  
+  }
+}
+.accordion-enter-active,
+.accordion-leave-active {
+  will-change: height, opacity;
+  transition: height 0.3s ease, opacity 0.3s ease;
+  overflow: hidden;
+}
+.accordion-enter,
+.accordion-leave-to {
+  height: 0 !important;
+  opacity: 0;
+}
+// faq

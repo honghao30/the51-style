@@ -6,6 +6,7 @@ import cmpModal from "@/views/cmpUser/cmpModal.vue";
 import cmpToolTip from "@/views/cmpUser/cmpToolTip.vue";
 import cmpKoreaMap from "@/views/cmpUser/cmpSvgMap.vue";
 import cmpAccordion from "@/views/cmpUser/cmpAccMenu.vue";
+import cmpKoreaWeather from "@/views/cmpUser/cmpKoreaWeather.vue";
 
 // 라우터 
 const routes = [
@@ -43,6 +44,11 @@ const routes = [
         path: "/cmpAccordion",
         name: "cmpAccordion",
         component: cmpAccordion,
+    },
+    {
+        path: "/cmpKoreaWeather",
+        name: "cmpKoreaWeather",
+        component: cmpKoreaWeather,
     } 
 ]
 
