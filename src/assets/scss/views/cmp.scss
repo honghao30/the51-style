@@ -1,0 +1,29 @@
+// 지도 컴포넌트
+// 칼라 테마 css 정의
+.land {
+  fill-opacity: 1;
+  stroke:white;
+  stroke-opacity: 1;
+  stroke-width:0.5;
+  &:hover {
+      opacity: 0.5;
+      transition: all 0.3s;
+  }
+}
+.bluest1 {fill:#0080FF;stroke:#FFFFFF;stroke-width:5;}
+.bluest2 {fill:#0D87FF;stroke:#FFFFFF;stroke-width:5;}
+.bluest3 {fill:#1A8DFF;stroke:#FFFFFF;stroke-width:5;}
+.bluest4 {fill:#2794FF;stroke:#FFFFFF;stroke-width:5;}
+.bluest5 {fill:#359AFF;stroke:#FFFFFF;stroke-width:5;}
+.bluest6 {fill:#42A1FF;stroke:#FFFFFF;stroke-width:5;}
+.bluest7 {fill:#4FA7FF;stroke:#FFFFFF;stroke-width:5;}
+.bluest8 {fill:#5CAEFF;stroke:#FFFFFF;stroke-width:5;}
+.bluest9 {fill:#69B4FF;stroke:#FFFFFF;stroke-width:5;}
+.bluest10 {fill:#76BBFF;stroke:#FFFFFF;stroke-width:5;}
+.bluest11 {fill:#83C2FF;stroke:#FFFFFF;stroke-width:5;}
+.bluest12 {fill:#90C8FF;stroke:#FFFFFF;stroke-width:5;}
+.bluest13 {fill:#9ECFFF;stroke:#FFFFFF;stroke-width:5;}
+.bluest14 {fill:#ABD5FF;stroke:#FFFFFF;stroke-width:5;}
+.bluest15 {fill:#B8DCFF;stroke:#FFFFFF;stroke-width:5;}
+.bluest16 {fill:#C5E2FF;stroke:#FFFFFF;stroke-width:5;}
+.bluest17 {fill:#D2E9FF;stroke:#FFFFFF;stroke-width:5;}

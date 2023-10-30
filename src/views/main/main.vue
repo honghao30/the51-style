@@ -1,5 +1,17 @@
 <template>
   <div class="main-container">
+    <el-card class="box-card main-weather">
+      <template #header>
+        <div class="card-header">
+          <span>안녕하세요?</span>
+          <el-button class="button" text>전국날씨</el-button>
+        </div>
+      </template>
+      <div class="text item">
+        10월 30일 서울 날씨 입니다.<br>
+        여러분이 계신곳은 어떠신가요?
+      </div>
+    </el-card>    
     <div class="main-swiper">
       <swiper
         :modules="modules"
