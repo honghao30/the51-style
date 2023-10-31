@@ -51,7 +51,7 @@ export function getWeatherKorea() {
         ])        
         .then(
             axios.spread((res1, res2, res3, res4, res5, res6, res7, res8, res9, res10, res11, res12, res13, res14, res15, res16, res17) => {
-                const WeatherList = ref([
+                WeatherList.value = [
                     {
                         'area': '서울',
                         'data': res1.data.main.temp + '°C',
@@ -137,8 +137,8 @@ export function getWeatherKorea() {
                         'data': res17.data.main.temp + '°C',
                         'id': 'KR-50'
                     }
-                ])                      
-                console.log(WeatherList._rawValue)
+                ]                     
+               console.log(WeatherList._rawValue)
             })
         )
         .catch(err => {
