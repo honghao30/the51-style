@@ -35,7 +35,7 @@
             <router-link to="/cmpAccordion">아코디언</router-link>
           </el-menu-item>   
           <el-menu-item index="2-6">
-            <router-link to="/cmpTapMenu">탭메뉴</router-link>
+            <router-link to="/cmpTab">탭메뉴</router-link>
           </el-menu-item>          
           <el-menu-item index="2-7">
             <router-link to="/cmpKoreaMap">SVG맵</router-link>
