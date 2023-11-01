@@ -34,6 +34,14 @@ const props = defineProps({
     type: Number,
     default: 0
   },
+  title: {
+    type: String,
+    default: ''
+  },
+  isNew: {
+    type: Boolean,
+    default: false
+  },
   size: String
 })
 

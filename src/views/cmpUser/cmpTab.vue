@@ -8,22 +8,20 @@
       탭 메뉴에 대한 가이드입니다.(작업중)
     </div>
     <TabCategory :category="category" :activeTab="0"/>
-    <div style="padding: 50px 0;">
-      <TabCmp>
-        <TabItem title="Tab1">
-          <div>Tab1 내용</div>
-        </TabItem>
-        <TabItem title="Tab2">
-          <div>Tab2 내용</div>
-        </TabItem>
-        <TabItem title="Tab3">
-          <div>Tab3 내용</div>
-        </TabItem>
-        <TabItem title="Tab4" :isNew="true">
-          <div>Tab4 내용</div>
-        </TabItem>
-      </TabCmp>
-    </div>
+    <TabCmp>
+      <TabItem title="Tab1">
+        <div>Tab1 내용</div>
+      </TabItem>
+      <TabItem title="Tab2">
+        <div>Tab2 내용</div>
+      </TabItem>
+      <TabItem title="Tab3">
+        <div>Tab3 내용</div>
+      </TabItem>
+      <TabItem title="Tab4" :isNew="true">
+        <div>Tab4 내용</div>
+      </TabItem>
+    </TabCmp>
   </div>
 </template>
 
