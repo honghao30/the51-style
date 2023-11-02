@@ -5,48 +5,47 @@
       pageTitle="탭 메뉴"
     />
     <div class="discription-text">
-      탭 메뉴에 대한 가이드입니다.(작업중)
+      탭 메뉴에 대한 가이드입니다.(작업)
     </div>
-    <TabCategory :category="category" :activeTab="0"/>
-    <TabCmp>
-      <TabItem title="Tab1">
-        <div>Tab1 내용</div>
-      </TabItem>
-      <TabItem title="Tab2">
-        <div>Tab2 내용</div>
-      </TabItem>
-      <TabItem title="Tab3">
-        <div>Tab3 내용</div>
-      </TabItem>
-      <TabItem title="Tab4" :isNew="true">
-        <div>Tab4 내용</div>
-      </TabItem>
-    </TabCmp>
+    <TabsCmp :tabs="tabsList" @handleClicked="updataSelected">
+        <template #content>
+          <components :is="curContent"></components>
+        </template>
+    </TabsCmp>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import Title from "@/components/element/PageTitle.vue"
-import TabCmp from '@/components/tab/TabCmp.vue'
-import TabItem from '@/components/tab/TabItem.vue'
-import TabCategory from '@/components/tab/TabCategory.vue'
+import TabsCmp from "@/components/tabs/TabCmp.vue"
 
-const currentTab = ref(0)
-const category = ref([
+
+const tabsList = ref([
   {
-    code: 0,
-    codeNm: 'tab1'
+    title: 'tab1',
+    icon: '',
+    content: 'tab1'
   },
   {
-    code: 1,
-    codeNm: 'tab2'
+    title: 'tab2',
+    icon: '',
+    content: 'tab2'
   },
   {
-    code: 2,
-    codeNm: 'tab3'
+    title: 'tab3',
+    icon: '',
+    content: 'tab3'
   }
 ])
+const selected = ref(0)
+const curContent = ref('tab1')
+
+const updataSelected = (index) => {
+  selected.value = index
+  curContent.value = tabsList.value[index].content
+}
+
 </script>
 
 <style>
