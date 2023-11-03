@@ -13,9 +13,11 @@
       >        
         <el-sub-menu index="1">
           <template #title>영화정보</template>
-          <el-menu-item index="1-1">인기영화</el-menu-item>
-          <el-menu-item index="1-2">상영중</el-menu-item>          
-          <el-menu-item index="1-3">박스오피스</el-menu-item>
+          <el-menu-item index="1-1">
+            <router-link to="/MovieList">인기영화</router-link>
+          </el-menu-item>
+          <!-- <el-menu-item index="1-2">상영중</el-menu-item>           -->
+          <el-menu-item index="1-2">박스오피스</el-menu-item>
         </el-sub-menu>
         <el-sub-menu index="2">
           <template #title>컴포넌트</template>

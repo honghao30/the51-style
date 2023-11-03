@@ -3,10 +3,11 @@
     <el-card class="box-card main-weather">
       <div class="text item">
         안녕하세요?<br>
-        {{today}} 현재 시각 {{ current }} 서울 날씨 입니다.<br>
-        오늘은 {{ todayWeather  }}, 현재 온도는 {{ todaytemp }} °C,<br> 습도는 {{ todayhumidity }} 입니다.<br>
-        {{today}} 일출 {{ sunriseTimeIs  }}, 일몰 {{ sunsetTimeIs  }}
-        여러분이 계신곳은 어떠신가요?
+        <strong>{{today}} 현재 시각 {{ current }}</strong> 서울 날씨 입니다.<br>
+        오늘은 <strong>{{ todayWeather  }}</strong>, 현재 온도는  <strong>{{ todaytemp }} °C</strong>,<br> 습도는 <strong>{{ todayhumidity }}</strong> 입니다.<br>
+        <strong>{{today}} 일출 {{ sunriseTimeIs  }}, 일몰 {{ sunsetTimeIs  }}</strong> 입니다.<br>
+        여러분이 계신곳은 어떠신가요?<br>
+        <router-link to="/cmpKoreaWeather">지역별 날씨 페이지</router-link>
       </div>
     </el-card>    
     <div class="main-swiper">

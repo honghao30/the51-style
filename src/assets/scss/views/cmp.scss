@@ -190,3 +190,27 @@
   opacity: 0;
 }
 // faq
+
+.movie-list__wrap {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  .movie-item {        
+    width: 20%;
+  }
+  .movie-item__img {
+    width: 100%;
+    img {width: 100%}
+  }
+  .movie-item__info {
+    .movie-item__info-title {
+      @include fontoption(20px, #000, 500, 35px);
+    }
+    .movie-item__info-desc {
+      margin-top: 5px;
+      @include fontoption(16px, #000, 400, 28px);
+      @include ellipsis($line: 3);
+    }
+  }
+}
