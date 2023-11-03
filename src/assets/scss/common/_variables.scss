@@ -36,6 +36,25 @@ $desktop1025: "screen and (min-width : 1025px)";
     }
 }
 
+@function rem($value) {
+    // @debug type-of($value);
+    @if 0 == str-index(#{$value}, 'px') {
+        @warn "invalid value. use 'px'";
+    } @else {
+        @if list == type-of($value) {
+            $rem: to-rem(list.nth($value, 1));
+            $output: $rem;
+            @for $i from 2 through length($value) {
+                $rem: to-rem(list.nth($value, $i));
+                $output: list.append($output, $rem);
+                // @debug $output;
+            }
+            @return $output;
+        } @else {
+            @return to-rem($value);
+        }
+    }
+}
 //color values
 $defaultColor: #000000;
 $pointColor: #2F77FB;
