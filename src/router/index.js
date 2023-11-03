@@ -8,6 +8,7 @@ import cmpKoreaMap from "@/views/cmpUser/cmpSvgMap.vue";
 import cmpAccordion from "@/views/cmpUser/cmpAccMenu.vue";
 import cmpKoreaWeather from "@/views/cmpUser/cmpKoreaWeather.vue";
 import cmpTab from "@/views/cmpUser/cmpTab.vue";
+import scrollEvent from "@/views/scrollEvent/scrollEvent.vue";
 
 // 라우터 
 const routes = [
@@ -55,7 +56,12 @@ const routes = [
         path: "/cmpTab",
         name: "cmpTab",
         component: cmpTab,
-    }  
+    },
+    {
+        path: "/scrollEvent",
+        name: "scrollEvent",
+        component: scrollEvent,
+    }    
 ]
 
 // 라우터 생성

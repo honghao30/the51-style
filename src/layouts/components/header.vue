@@ -44,7 +44,9 @@
         <el-sub-menu index="3">
           <template #title>스크립트</template>
           <el-menu-item index="3-1">swiper</el-menu-item>
-          <el-menu-item index="3-2">스크롤이벤트</el-menu-item>
+          <el-menu-item index="3-2">
+            <router-link to="/scrollEvent">스크롤이벤트</router-link>
+          </el-menu-item>
           <el-menu-item index="3-3">동영상 제어</el-menu-item>
           <el-menu-item index="3-4">
             <router-link to="/cmpKoreaWeather">전국날씨</router-link>

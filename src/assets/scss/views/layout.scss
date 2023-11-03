@@ -47,3 +47,42 @@
   max-width: 1280px;
   margin: 0 auto;
 }
+
+
+// animation
+.slideup {
+  opacity: 0;
+}
+
+.slideInUp {
+  animation-name: slideInUp;
+}
+
+@keyframes slideInUp {
+  0% {
+      opacity: 0;
+      transform: translateY(25%);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0%);
+  }
+}
+
+.slide-up {
+  transition: all 0.25s;
+}
+
+.slide-up-enter-active {
+  transition: all 0.25s ease;
+}
+
+.slide-up-leave-active {
+  transition: all 0.25s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-up-enter,
+.slide-up-leave-active {
+  opacity: 0;
+  transform: translateY(100%);
+}
