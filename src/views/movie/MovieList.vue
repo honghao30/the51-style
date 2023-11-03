@@ -16,6 +16,7 @@
                 <h3>{{ movie.title }}</h3>
               </div>
               <div class="movie-item__info-desc">
+                <p class="data">개봉일 : {{ movie.release_date }}</p>
                 <p>{{ movie.overview }}</p>
               </div>
             </div>

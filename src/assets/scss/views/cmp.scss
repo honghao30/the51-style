@@ -211,6 +211,9 @@
       margin-top: 5px;
       @include fontoption(16px, #000, 400, 28px);
       @include ellipsis($line: 3);
+      .date {
+        font-size: 14px;
+      }
     }
   }
 }
