@@ -36,12 +36,7 @@ const getMovieRaingking = () => {
             console.log(err.message);
         });
     }
-    // const DailyRangk = () => {
-    //     console.log('일간 랭킹',dailyData,RankBaseUrl)        
-    // }
-    // const WeeklyRangk = () => {
-    //     console.log('주간 랭킹',WeeklyData,RankBaseUrl)
-    // }    
+  
     return { BoxData,DailyRaingKing,WeekRaingKing };
 }
 export default getMovieRaingking;

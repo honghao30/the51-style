@@ -29,7 +29,7 @@
 <script setup>
 import { ref } from 'vue';
 import axios from 'axios';
-
+import Title from "@/components/element/PageTitle.vue"
 const MovieBaseUrl = 'https://api.themoviedb.org/3/movie/';
 const MovieKey = 'd2bb40d5b45665c9a72ed5938162a943';
 

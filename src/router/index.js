@@ -10,6 +10,7 @@ import cmpKoreaWeather from "@/views/cmpUser/cmpKoreaWeather.vue";
 import cmpTab from "@/views/cmpUser/cmpTab.vue";
 import scrollEvent from "@/views/scrollEvent/scrollEvent.vue";
 import MovieList from "@/views/movie/MovieList.vue";
+import BoxOffice from "@/views/movie/BoxOffice.vue";
 
 // 라우터 
 const routes = [
@@ -67,7 +68,12 @@ const routes = [
         path: "/MovieList",
         name: "MovieList",
         component: MovieList,
-    }        
+    },
+    {
+        path: "/BoxOffice",
+        name: "BoxOffice",
+        component: BoxOffice,
+    }       
 ]
 
 // 라우터 생성
