@@ -217,3 +217,26 @@
     }
   }
 }
+
+.movie-rangking__wrap {
+  margin: 30px 0 100px;
+  width: 100%;
+  .table-list {
+    width: 100%;
+    border-top: 1px solid #ccc;
+    th {
+      text-align: center;
+      vertical-align: middle;
+      @include fontoption(16px, #000, 400, 28px);
+      height: 60px;
+      border-bottom: 1px solid #ccc;
+    }
+    td {
+      text-align: center;
+      vertical-align: middle;
+      @include fontoption(16px, #000, 400, 28px);
+      height: 60px;
+      border-bottom: 1px solid #ccc;
+    }
+  }
+}

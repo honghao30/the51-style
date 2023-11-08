@@ -12,7 +12,7 @@
       </template>
     </component>
     <template  v-if="noTicText !== ''">
-      <span class="notice-text">* 필수 입력</span>
+      <span class="notice-text">* {{ noTicText }}</span>
     </template>
     <template  v-if="link !== ''">
       <Nuxt-link class="btn-more" to="" >더보기</Nuxt-link>
