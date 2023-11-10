@@ -3,7 +3,11 @@
 }
 .header {
   width: 100%;
+  position: sticky;
   border-bottom: 1px solid #eee;
+  top: 0;
+  background: #fff;
+  z-index: 5;
   .inner__wrap {
     padding: 0px 16px;   
     display: flex;
@@ -50,13 +54,16 @@
 
 
 // animation
-// .slideup {
-//   transform: translateY(25%);
-// }
+.slideup {
+  transform: translateY(25%);
+  opacity: 0;
+}
 
 .slideInUp {  
   -webkit-animation-name: slideInUp;  
   animation-name: slideInUp;  
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes slideInUp {

@@ -1,5 +1,5 @@
 <template>
-  <div class="content-wrap">
+  <div class="content-wrap" ref="content">
     <div  class="section section00">
       <Title 
         :level="2" 
@@ -21,21 +21,21 @@
     </div>
     <div 
     ref="section2"
-    class="section section02 slideup">
+    class="section section02 slideup" :class="{ slideInUp: scrolled}">
       <Title 
         :level="3" 
         alignType="center" 
         pageTitle="스크롤 이벤트2"
       />
     </div>
-    <div class="section section03 slideup">
+    <div class="section section03 slideup"  :class="{ slideInUp: scrolled}">
       <Title 
         :level="3" 
         alignType="center" 
         pageTitle="스크롤 이벤트3"
       />
     </div>
-    <div  class="section section04 slideup">
+    <div  class="section section04 slideup"  :class="{ slideInUp: scrolled}">
       <Title 
         :level="3" 
         alignType="center" 
@@ -48,39 +48,22 @@
 <script setup>
 import Title from "@/components/element/PageTitle.vue"
 import { ref, onBeforeUnmount, onMounted } from 'vue'
+const content = ref()
 
-const handleScroll = () => {
-  // 스크롤 up animation event
-  let obj = document.querySelectorAll('.slideup')
-  let height = document.documentElement.clientHeight
-  obj.forEach(section => {
-    let { top, bottom } = section.getBoundingClientRect() // 각 섹션의 위치를 가져옵니다.
-    let isInViewport = top < height && bottom > 0 // 섹션이 뷰포트 안에 있는지 확인합니다.
-    if (isInViewport) {
-      section.classList.add('slideInUp')
-    }
-  })
-  // 배경칼라 변경
-  // const sections = this.$refs
-  // const scrollVal = window.scrollY
-  // const docBody = document.body
-
-  // for (const key in sections) {
-  //   const section = sections[key]
-  //   if (section && section.offsetTop <= scrollVal && section.offsetTop + section.clientHeight > scrollVal) {
-  //     const color = section.dataset.color
-  //     if (color) {
-  //       this.bodyColor = color
-  //     }
-  //   }
-  // }
-  // docBody.className = this.bodyColor
-}
 onMounted(() => {
+  const handleScroll = () => {
+    const obj = content.value.querySelectorAll('.slideup')
+    const height = document.documentElement.clientHeight
+    obj.forEach(section => {
+      const { top, bottom } = section.getBoundingClientRect()
+      const isInViewport = top < height && bottom > 0
+      if (isInViewport && !section.classList.contains('slideInUp')) {
+        section.classList.add('slideInUp')
+      }
+    })
+  }
+
   window.addEventListener('scroll', handleScroll)
-})
-onBeforeUnmount(() => {
-  window.removeEventListener('scroll', handleScroll)
 })
 </script>
 
