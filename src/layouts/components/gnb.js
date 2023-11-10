@@ -75,7 +75,7 @@ const gnbList = [
     'children': [
         {
           'name': '개요',
-          'to': '',
+          'to': '/RullGuide',
         },
         { 
           'name': '설계 정책',

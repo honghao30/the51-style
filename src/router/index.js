@@ -11,6 +11,9 @@ import cmpTab from "@/views/cmpUser/cmpTab.vue";
 import scrollEvent from "@/views/scrollEvent/scrollEvent.vue";
 import MovieList from "@/views/movie/MovieList.vue";
 import BoxOffice from "@/views/movie/BoxOffice.vue";
+import RullGuide from "@/views/pubGuid/RullGuide.vue";
+import CheckPwd from '@/views/pubGuid/CheckPwd.vue';
+import guideKey from '@/utils/guideKey';
 
 // 라우터 
 const routes = [
@@ -73,9 +76,25 @@ const routes = [
         path: "/BoxOffice",
         name: "BoxOffice",
         component: BoxOffice,
-    }       
+    },      
+    {
+        path: '/RullGuide',
+        name: 'RullGuide',
+        component: RullGuide,
+        beforeEnter: (to, from, next) => {
+            if (to.query[guideKey]) {
+            next();
+            } else {
+            next('/checkPwd');
+            }
+        },
+    },
+    {
+        path: '/checkPwd',
+        name: 'checkPwd',
+        component: CheckPwd,        
+    }
 ]
-
 // 라우터 생성
 const router = createRouter({
     history: createWebHistory(),
