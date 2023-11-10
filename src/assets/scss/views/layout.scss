@@ -1,6 +1,19 @@
 .wrap {
   width: 100%;
 }
+.main-visual {
+  width: 100%;
+	overflow: hidden;
+	padding-bottom: 55%;
+  img {
+    position: fixed;
+    top: 0%;
+    left: 50%;
+    max-width: 110%;
+    width: 100%;
+    transform: translateX(-50%);
+  }
+}
 .header {
   width: 100%;
   position: sticky;

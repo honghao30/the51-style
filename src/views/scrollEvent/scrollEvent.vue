@@ -1,5 +1,8 @@
 <template>
   <div class="content-wrap" ref="content">
+    <div class="main-visual" ref="mainImg">
+        <img src="../../assets/images/temp/top_img.jpg" alt="">
+    </div>
     <div  class="section section00">
       <Title 
         :level="2" 
@@ -48,10 +51,12 @@
 <script setup>
 import Title from "@/components/element/PageTitle.vue"
 import { ref, onBeforeUnmount, onMounted } from 'vue'
-const content = ref()
+const content = ref(null)
+const mainImg = ref()
 
 onMounted(() => {
   const handleScroll = () => {
+    // 스크롤 애니메이션
     const obj = content.value.querySelectorAll('.slideup')
     const height = document.documentElement.clientHeight
     obj.forEach(section => {
@@ -61,6 +66,10 @@ onMounted(() => {
         section.classList.add('slideInUp')
       }
     })
+    // 키비 이미지 애니메이션
+    const scroll = window.scrollY || document.documentElement.scrollTop
+    const keyImage = mainImg.value.querySelector('img')
+    keyImage.style.transform = 'translate3d(-50%, -' + (scroll / 100) + '%, 0) scale(' + (100 + scroll / 5) / 100 + ')'
   }
 
   window.addEventListener('scroll', handleScroll)
