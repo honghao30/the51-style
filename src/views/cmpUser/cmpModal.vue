@@ -36,8 +36,6 @@
 <script setup>
   import { reactive, ref } from 'vue'
 
-  import Title from "@/components/element/PageTitle.vue"
-  import Button from "@/components/element/ButtonCmp.vue"
   import ModalView from "@/components/modal/ModalView.vue"
 
   const isModalViewed = ref(false)

@@ -37,8 +37,8 @@
 </template>
 
 <script setup>
-  import Title from "@/components/element/PageTitle.vue"
-  import Button from "@/components/element/ButtonCmp.vue"
+  // import Title from "@/components/element/PageTitle.vue"
+  // import Button from "@/components/element/ButtonCmp.vue"
 
   const msgShow = () => {  
     alert('안녕')

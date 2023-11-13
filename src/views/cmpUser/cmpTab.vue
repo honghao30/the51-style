@@ -17,7 +17,6 @@
 
 <script setup>
 import { ref } from 'vue';
-import Title from "@/components/element/PageTitle.vue"
 import TabsCmp from "@/components/tabs/TabCmp.vue"
 
 

@@ -24,7 +24,6 @@
 
 <script setup>
 import { ref } from 'vue';
-import Title from "@/components/element/PageTitle.vue"
 import mapCmp from "@/components/svgmap/mapCmp.vue"
 // import { getWeatherKorea } from '@/api/getWeatherKorea'
 // const { WeatherList } = getWeatherKorea()

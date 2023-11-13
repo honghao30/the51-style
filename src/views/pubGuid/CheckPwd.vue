@@ -23,8 +23,6 @@
 <script setup>
   import { ref } from 'vue'
   import guideKey from '@/utils/guideKey'
-  import ModalView from "@/components/modal/ModalView.vue"
-  import Button from "@/components/element/ButtonCmp.vue"
   import { useRoute, useRouter } from 'vue-router'
 
   const isAuth = ref(true)

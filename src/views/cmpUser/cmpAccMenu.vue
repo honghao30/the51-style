@@ -40,7 +40,6 @@
 
 <script setup>
 import { ref } from 'vue';
-import Title from "@/components/element/PageTitle.vue"
 import Accordion from '@/components/accodiun/accordion.vue'
 import AccordionItem from '@/components/accodiun/accordion-item.vue'
 

@@ -43,7 +43,6 @@
 </template>
 
 <script setup>
-import Title from "@/components/element/PageTitle.vue"
 
 </script>
 

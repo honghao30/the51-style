@@ -9,6 +9,9 @@ import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
+// import "@/plugins/myComponents";
+import globalComponents from './plugins/myComponents'
+
 const vuetify = createVuetify({
   components,
   directives,
@@ -20,4 +23,4 @@ import './assets/scss/index.scss'
 
 const app = createApp(App)
 app.provide('$axios', axios)
-createApp(App).use(ElementPlus).use(vuetify).use(router).mount('#app')
+createApp(App).use(ElementPlus).use(vuetify).use(router).use(globalComponents).mount('#app')

@@ -49,7 +49,6 @@
 </template>
 
 <script setup>
-import Title from "@/components/element/PageTitle.vue"
 import { ref, onBeforeUnmount, onMounted } from 'vue'
 const content = ref(null)
 const mainImg = ref()

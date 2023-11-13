@@ -79,7 +79,6 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import Title from "@/components/element/PageTitle.vue"
 import axios from 'axios';
 import { dailyData, WeeklyData, ydate7 } from '@/assets/js/common.js';
 
