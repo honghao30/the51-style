@@ -10,11 +10,14 @@
         <router-link to="/cmpKoreaWeather">지역별 날씨 페이지</router-link>
       </div>
     </el-card>    
+    <luckCard />
     <div class="main-swiper">
       <swiper
         :modules="modules"
         :slides-per-view="1"
         :space-between="0"
+        :speed="600"
+        :parallax="true"
         navigation
       >
         <swiper-slide>
@@ -31,8 +34,11 @@
   </div>
 </template>
 <script setup>
+// import luckCard from "@/components/miniGame/card.vue"
+import luckCard from '@/components/minicard/card.vue'
+
 // import Swiper core and required components
-import SwiperCore, { Navigation, Pagination, A11y } from "swiper"
+import SwiperCore, { Navigation, Pagination, A11y, Parallax } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/vue";
 
 // Import Swiper styles

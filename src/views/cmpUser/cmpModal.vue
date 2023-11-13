@@ -36,8 +36,6 @@
 <script setup>
   import { reactive, ref } from 'vue'
 
-  import ModalView from "@/components/modal/ModalView.vue"
-
   const isModalViewed = ref(false)
 
   const modalShow = () => {  

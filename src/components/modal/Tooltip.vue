@@ -23,7 +23,6 @@
 <script setup>
 import { ref, nextTick } from 'vue'
 import { defineProps } from 'vue'
-import Button from '@/components/element/ButtonCmp.vue'
 
 const props = defineProps({
   width: {
