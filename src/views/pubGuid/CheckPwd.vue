@@ -34,7 +34,7 @@
   const clickPwd = () => {
     if (checkPwd.value === guideKey) {
         router.replace({
-            path: '/RullGuide',
+            path: '/PubSummary',
             query: {
                 [guideKey]: true,
             },

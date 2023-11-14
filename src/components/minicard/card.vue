@@ -6,7 +6,7 @@
     >
         <div class="card-item front one-card">
             <div class="card-item__innerbox">
-              <span>행운카드</span>
+              <span>행운카드 볼래요?</span>
             </div>
         </div>
         <div class="card-item backface">
@@ -31,8 +31,9 @@
   }
 
   const SelectCard = () => {
-    isActive.value = true
-    getRandomCard()
+    if (!isActive.value) {
+      isActive.value = true
+      getRandomCard()  
+    }
   }
-
 </script>

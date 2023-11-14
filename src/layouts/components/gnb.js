@@ -75,15 +75,15 @@ const gnbList = [
     'children': [
         {
           'name': '개요',
-          'to': '/RullGuide',
+          'to': '/PubSummary',
         },
         { 
           'name': '설계 정책',
-          'to': '',
+          'to': '/PubRoll',
         },
         {
-          'name': '퍼블 리스트 샘플',
-          'to': '',
+          'name': '퍼블 리스트',
+          'to': '/PubList',
         }          
       ]
   }     

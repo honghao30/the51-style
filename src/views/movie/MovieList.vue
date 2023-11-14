@@ -2,7 +2,7 @@
     <div class="content-wrap">
       <Title 
         :level="2" 
-        pageTitle="영화 순위"
+        pageTitle="상영중 영화"
       />
       <div class="movie-list__wrap">
           <div class="movie-item"   

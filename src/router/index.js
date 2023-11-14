@@ -11,7 +11,9 @@ import cmpTab from "@/views/cmpUser/cmpTab.vue";
 import scrollEvent from "@/views/scrollEvent/scrollEvent.vue";
 import MovieList from "@/views/movie/MovieList.vue";
 import BoxOffice from "@/views/movie/BoxOffice.vue";
-import RullGuide from "@/views/pubGuid/RullGuide.vue";
+import PubSummary from "@/views/pubGuid/PubSummary.vue";
+import PubRoll from "@/views/pubGuid/PubRoll.vue";
+import PubList from "@/views/pubGuid/PubList.vue";
 import CheckPwd from '@/views/pubGuid/CheckPwd.vue';
 import guideKey from '@/utils/guideKey';
 
@@ -78,9 +80,9 @@ const routes = [
         component: BoxOffice,
     },      
     {
-        path: '/RullGuide',
-        name: 'RullGuide',
-        component: RullGuide,
+        path: '/PubSummary',
+        name: 'PubSummary',
+        component: PubSummary,
         beforeEnter: (to, from, next) => {
             if (to.query[guideKey]) {
             next();
@@ -89,6 +91,30 @@ const routes = [
             }
         },
     },
+    {
+        path: '/PubRoll',
+        name: 'PubRoll',
+        component: PubRoll,
+        beforeEnter: (to, from, next) => {
+            if (to.query[guideKey]) {
+            next();
+            } else {
+            next('/checkPwd');
+            }
+        },
+    },    
+    {
+        path: '/PubList',
+        name: 'PubList',
+        component: PubList,
+        beforeEnter: (to, from, next) => {
+            if (to.query[guideKey]) {
+            next();
+            } else {
+            next('/checkPwd');
+            }
+        },
+    },    
     {
         path: '/checkPwd',
         name: 'checkPwd',
