@@ -14,8 +14,8 @@ import BoxOffice from "@/views/movie/BoxOffice.vue";
 import PubSummary from "@/views/pubGuid/PubSummary.vue";
 import PubRoll from "@/views/pubGuid/PubRoll.vue";
 import PubList from "@/views/pubGuid/PubList.vue";
-import CheckPwd from '@/views/pubGuid/CheckPwd.vue';
-import guideKey from '@/utils/guideKey';
+// import CheckPwd from '@/views/pubGuid/CheckPwd.vue';
+// import checkPwd from '@/utils/checkPwd';
 
 // 라우터 
 const routes = [
@@ -82,44 +82,18 @@ const routes = [
     {
         path: '/PubSummary',
         name: 'PubSummary',
-        component: PubSummary,
-        beforeEnter: (to, from, next) => {
-            if (to.query[guideKey]) {
-            next();
-            } else {
-            next('/checkPwd');
-            }
-        },
+        component: PubSummary
     },
     {
         path: '/PubRoll',
         name: 'PubRoll',
-        component: PubRoll,
-        beforeEnter: (to, from, next) => {
-            if (to.query[guideKey]) {
-            next();
-            } else {
-            next('/checkPwd');
-            }
-        },
+        component: PubRoll
     },    
     {
         path: '/PubList',
         name: 'PubList',
-        component: PubList,
-        beforeEnter: (to, from, next) => {
-            if (to.query[guideKey]) {
-            next();
-            } else {
-            next('/checkPwd');
-            }
-        },
-    },    
-    {
-        path: '/checkPwd',
-        name: 'checkPwd',
-        component: CheckPwd,        
-    }
+        component: PubList
+    }  
 ]
 // 라우터 생성
 const router = createRouter({

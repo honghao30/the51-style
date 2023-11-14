@@ -1,5 +1,25 @@
 <template>
-  <div class="content__wrap">
+  <div>
+    <ModalView
+      v-if="isModalViewed" 
+      v-model="isAuth" 
+      @closeModal="isAuth = false"
+      modalTitle="비밀번호 확인"
+      modalSize="500"
+    >
+      <template #content>
+        <div class="check-pwd">
+          <input class="check__text" v-model="checkPwd"  @keyup.enter="clickPwd" placeholder="비번 입력 후 입장 가능합니다." />
+          <Button
+            types="btn-primary-line"
+            size="medium"
+            buttonName="확인"
+            @click="clickPwd"
+          />          
+         </div>
+      </template>       
+    </ModalView> 
+    <div class="content__wrap" v-if="isSuccess">
     <Title 
         :level="2" 
         pageTitle="개요"
@@ -38,41 +58,74 @@
     </div>
 
   </div>
+  </div>
 </template>
+<script setup>
+  import { ref } from 'vue'
+  import guideKey from '@/utils/guideKey'  
+  import { useRoute, useRouter } from 'vue-router'
 
+  const isAuth = ref(true)
+  const checkPwd = ref('')
+  const isSuccess = ref(false)
+
+  const route = useRoute()
+  const router = useRouter()
+  const isModalViewed = ref(true)
+
+  const clickPwd = () => {
+    if (checkPwd.value === guideKey) {
+      isSuccess.value = true
+      isModalViewed.value = false
+    } else {
+      alert('잘못된 비밀번호을 입력하셨습니다.')
+    }
+  }  
+</script>
 <style lang="scss">
-    .content__wrap {
-      width: 98%;
-      margin: 0 auto;
-      padding: 50px 0;
+.check-pwd {
+  display: flex;
+  gap: 10px;
+  .check__text {
+    height: 33px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    text-indent: 15px;    
+    width: calc(100% - 100px);
+  }
+}
+.content__wrap {
+  width: 98%;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+.wsg-guide-body {margin-top: 30px;}
+.wsg-table-body {
+    width: calc(100% + 2px); 
+    table-layout: fixed; 
+    border-top: 1px solid #96acbf;
+    margin-bottom:20px;
+    th {
+        background-color: #f4f8fb;
+        border-right: 1px solid #d9e3ea;
     }
-    .wsg-guide-body {margin-top: 30px;}
-    .wsg-table-body {
-        width: calc(100% + 2px); 
-        table-layout: fixed; 
-        border-top: 1px solid #96acbf;
-        margin-bottom:20px;
-        th {
-            background-color: #f4f8fb;
-            border-right: 1px solid #d9e3ea;
-        }
-        th,
-        td
-        {
-            height: 50px; 
-            vertical-align: middle; 
-            text-align: left; 
-            line-height: 13px; 
-            font-size: 13px;         
-            line-height: 1.5;
-            border-bottom: 1px solid #d9e3ea;
-            padding-left:20px;
-            &:first-child,
-            &:last-child {border-left: 0;}
-        }
-        th[rowspan], 
-        td[rowspan] {
-            border-right: 1px solid #d9e3ea;
-        }
+    th,
+    td
+    {
+        height: 50px; 
+        vertical-align: middle; 
+        text-align: left; 
+        line-height: 13px; 
+        font-size: 13px;         
+        line-height: 1.5;
+        border-bottom: 1px solid #d9e3ea;
+        padding-left:20px;
+        &:first-child,
+        &:last-child {border-left: 0;}
     }
+    th[rowspan], 
+    td[rowspan] {
+        border-right: 1px solid #d9e3ea;
+    }
+}
 </style>
