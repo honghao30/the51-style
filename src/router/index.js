@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import home from "@/views/main/main.vue";
+
 import cmpTitle from "@/views/cmpUser/cmpTitle.vue";
 import cmpButton from "@/views/cmpUser/cmpButton.vue";
 import cmpModal from "@/views/cmpUser/cmpModal.vue";
@@ -8,14 +9,17 @@ import cmpKoreaMap from "@/views/cmpUser/cmpSvgMap.vue";
 import cmpAccordion from "@/views/cmpUser/cmpAccMenu.vue";
 import cmpKoreaWeather from "@/views/cmpUser/cmpKoreaWeather.vue";
 import cmpTab from "@/views/cmpUser/cmpTab.vue";
+import cmpInput from "@/views/cmpUser/cmpInput.vue";
+
 import scrollEvent from "@/views/scrollEvent/scrollEvent.vue";
+
 import MovieList from "@/views/movie/MovieList.vue";
 import BoxOffice from "@/views/movie/BoxOffice.vue";
+
+// 가이드
 import PubSummary from "@/views/pubGuid/PubSummary.vue";
 import PubRoll from "@/views/pubGuid/PubRoll.vue";
 import PubList from "@/views/pubGuid/PubList.vue";
-// import CheckPwd from '@/views/pubGuid/CheckPwd.vue';
-// import checkPwd from '@/utils/checkPwd';
 
 // 라우터 
 const routes = [
@@ -64,6 +68,11 @@ const routes = [
         name: "cmpTab",
         component: cmpTab,
     },
+    {
+        path: "/cmpInput",
+        name: "cmpInput",
+        component: cmpInput,
+    },    
     {
         path: "/scrollEvent",
         name: "scrollEvent",

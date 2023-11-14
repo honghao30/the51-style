@@ -44,7 +44,11 @@ const gnbList = [
         {
           'name': 'SVG맵',
           'to': '/cmpKoreaMap',
-        }            
+        },
+        {
+          'name': 'Form',
+          'to': '/cmpInput',
+        }              
       ]
   },
   {
