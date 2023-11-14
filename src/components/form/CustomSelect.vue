@@ -1,5 +1,5 @@
 <template>
-  <div class="dropdown" v-on-click-outside="onClickOutsideHandler">
+  <div class="dropdown" v-click-outside="onClickOutside">
     <a role="button"
        class="dropdown__trigger"
        :title="label"
@@ -29,8 +29,8 @@
 </template>
 
 <script setup>
-import { ref, defineProps } from 'vue'
-import vClickOutside from 'v-click-outside'
+import { ref, defineProps, getCurrentInstance, onMounted } from 'vue'
+import { directive as vClickOutside } from 'v-click-outside'
 
 const props = defineProps({
   filteredOption: {
@@ -53,6 +53,8 @@ const props = defineProps({
 
 const selectedOption = ref('선택하세요')
 const isOpen = ref(false)
+const searchPlaceholder = ref('검색어를 입력하세요')
+
 const toggleSelect = () => {
   isOpen.value = !isOpen.value
 }
@@ -62,8 +64,13 @@ const selectOption = (option) => {
   console.log(option)
 }
 
-const onClickOutsideHandler = () => {
-  console.log(ev)
+const onClickOutside = () => {  
   isOpen.value = false
 }
+onMounted(() => {
+  // v-click-outside 디렉티브 등록
+  const instance = getCurrentInstance()
+  const { appContext } = instance
+  appContext.app.directive('click-outside', vClickOutside)
+})
 </script>
