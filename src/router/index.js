@@ -11,6 +11,8 @@ import cmpKoreaWeather from "@/views/cmpUser/cmpKoreaWeather.vue";
 import cmpTab from "@/views/cmpUser/cmpTab.vue";
 import cmpInput from "@/views/cmpUser/cmpInput.vue";
 
+import cmpSwiper from "@/views/swiperCase/cmpSwiper.vue";
+
 import scrollEvent from "@/views/scrollEvent/scrollEvent.vue";
 
 import MovieList from "@/views/movie/MovieList.vue";
@@ -72,12 +74,19 @@ const routes = [
         path: "/cmpInput",
         name: "cmpInput",
         component: cmpInput,
-    },    
+    },   
+    {
+        path: "/cmpSwiper",
+        name: "cmpSwiper",
+        component: cmpSwiper,
+    },
+    // 스크롤
     {
         path: "/scrollEvent",
         name: "scrollEvent",
         component: scrollEvent,
     },
+    // 영화 api
     {
         path: "/MovieList",
         name: "MovieList",
@@ -87,7 +96,8 @@ const routes = [
         path: "/BoxOffice",
         name: "BoxOffice",
         component: BoxOffice,
-    },      
+    },   
+    // 가이드   
     {
         path: '/PubSummary',
         name: 'PubSummary',

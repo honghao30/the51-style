@@ -57,7 +57,7 @@ const gnbList = [
     'children': [
         {
           'name': 'swiper',
-          'to': '',
+          'to': '/cmpSwiper',
         },
         {
           'name': '스크롤이벤트',
