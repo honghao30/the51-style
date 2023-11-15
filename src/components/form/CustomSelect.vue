@@ -29,8 +29,7 @@
 </template>
 
 <script setup>
-import { ref, defineProps, getCurrentInstance, onMounted } from 'vue'
-import { directive as vClickOutside } from 'v-click-outside'
+import { ref, defineProps,  onBeforeMount, onUnmounted } from 'vue'
 
 const props = defineProps({
   filteredOption: {
@@ -67,10 +66,4 @@ const selectOption = (option) => {
 const onClickOutside = () => {  
   isOpen.value = false
 }
-onMounted(() => {
-  // v-click-outside 디렉티브 등록
-  const instance = getCurrentInstance()
-  const { appContext } = instance
-  appContext.app.directive('click-outside', vClickOutside)
-})
 </script>
