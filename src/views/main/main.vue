@@ -37,17 +37,6 @@
 // import luckCard from "@/components/miniGame/card.vue"
 import luckCard from '@/components/minicard/card.vue'
 
-// import Swiper core and required components
-import SwiperCore, { Navigation, Pagination, A11y, Parallax } from "swiper"
-import { Swiper, SwiperSlide } from "swiper/vue";
-
-// Import Swiper styles
-import "swiper/swiper.scss"
-import "swiper/components/navigation/navigation.scss"
-import "swiper/components/pagination/pagination.scss"
-// install Swiper components
-SwiperCore.use([Navigation, Pagination, A11y])
-
 import axios from 'axios'
 import { ref } from 'vue'
 
