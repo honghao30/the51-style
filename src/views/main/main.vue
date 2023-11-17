@@ -34,8 +34,11 @@
   </div>
 </template>
 <script setup>
-// import luckCard from "@/components/miniGame/card.vue"
+import { Swiper, SwiperSlide } from "swiper/vue";
 import luckCard from '@/components/minicard/card.vue'
+
+import "swiper/components/navigation/navigation.scss"
+import "swiper/components/pagination/pagination.scss"
 
 import axios from 'axios'
 import { ref } from 'vue'

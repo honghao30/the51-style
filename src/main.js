@@ -6,14 +6,11 @@ import ClickOutside from './utils/ClickOutsideDirective'
 
 // import Swiper core and required components
 import SwiperCore, { Navigation, Pagination, A11y, Parallax } from "swiper"
-import { Swiper, SwiperSlide } from "swiper/vue";
-
 // Import Swiper styles
 import "swiper/swiper.scss"
-import "swiper/components/navigation/navigation.scss"
-import "swiper/components/pagination/pagination.scss"
+
 // install Swiper components
-SwiperCore.use([Navigation, Pagination, A11y])
+SwiperCore.use([Navigation, Pagination, A11y, Parallax])
 
 // Vuetify
 import 'vuetify/styles'
