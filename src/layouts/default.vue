@@ -1,10 +1,9 @@
 <template>
-  <div class="wrap">
-    <Header />
+  <div class="wrap">    
     <router-view></router-view>
   </div>
 </template>
 
 <script setup>
-  import Header from './components/header.vue'    
+    
 </script>
