@@ -4,7 +4,17 @@
       <h2>기본 설치 사양</h2>
       <div class="description">
         <p>git clone https://github.com/honghao30/the51-style.git</p>
-        <p>Vue3.3.4, vuetify : 3.4.0, element-plus: 2.4.1, swiper: 6.4.6</p>                
+        <p>Vue3.3.4, vuetify : 3.4.0, element-plus: 2.4.1, swiper: 6.4.6</p>   
+        <p>
+          
+          여러버전의 node 가 필요하기에 nvm 필요할수 있음<br>
+          nvm -v			# nvm 설치되었는지 버전 확인 <br>
+nvm list available 	# 사용가능한 node 버전 확인<br>
+nvm list 		# 설치된 모든 node 버전 확인<br>
+nvm install 16.15.1 	# 특정 node 버전 설치<br>
+nvm use 16.15.1 	# 특정 node 버전 사용<br>
+node -v ​  
+        </p>             
       </div>
       <h2>라이브러리</h2>
       <div class="description">
