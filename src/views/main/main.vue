@@ -1,88 +1,74 @@
 <template>
   <div class="main-guide">
-      <h1>안내문</h1>
+      <h1>작업 안내</h1>
       <h2>기본 설치 사양</h2>
       <div class="description">
-        <p>Vue3.3.4, vuetify : 3.4.0, element-plus: 2.4.1, swiper: 6.4.6</p>
-        <p>Vue3 vite 를 권장이유: </p>
-        <p>Vue3 Nuxt는 Router등 자동 셋팅되나 실제 프로젝트에서 Router 설정을 해야 하는 경우를 대비 해 Vue3 vite 버전을 권장 </p>
+        <p>git clone https://github.com/honghao30/the51-style.git</p>
+        <p>Vue3.3.4, vuetify : 3.4.0, element-plus: 2.4.1, swiper: 6.4.6</p>                
       </div>
-      <h2>라이브러리?</h2>
+      <h2>라이브러리</h2>
       <div class="description">
-        <p>vuetify, element-plus로 기본 레이아웃 구성은 잡을수 있다.</p>                 
+        <p>레이아웃은 vuetify, element-plus를 활용하셔도 됩니다.</p>                 
       </div>     
       <h2>라우터</h2>
       <div class="description">
-        <p>라우터에서 meta등을 설정해 다양하게 구현가능하나 1차의 목표는 페이지 생성시 라우터에서 추가하는것 까지 </p>  
-        <p>*** meta를 설정하고 경우에 따라 다른 레이아웃 구현</p>               
+        <p>페이지 생성시, 라우터 추가 필수</p>               
       </div>                
-      <h2>카테고리</h2>
+      <h2>프로젝트 설명</h2>
       <div class="description">
-        <p>전체 메뉴 카테고리는 /Layouts/components/gnb.js 에 있으며 import해서 사용하면 된다.</p>        
-        <p>레이아웃을 만들때 gnb.js를 호출해 v-for등을 활용해 메뉴 구성를 할수 있다.</p>        
-        <p>헤더,푸터등을 구현하고자 할때 /Layouts/ 에서 하면 된다.</p>  
-      </div>  
-      <h2>컴포넌트 설명</h2>
-      <div class="description">
-        <p><strong>타이틀 컴포넌트: </strong><br>
-          h1~h6 태그로 구성된 페이지내 타이틀, 소제목등을 컴포넌트화 하는것,<br>
-          props로 제목, 태그 레벨, 디스크립션 유무등 전달        
-        </p>        
+        <p>X-VIDEO 쇼츠 플랫폼</p>
         <p>
-          예) <br>
-          pageTitle="전체 프롬스"<br>
-          :level="3" - h1~h6태그 선택 <br>          
-          alignType="center"<br>
+          디자인 참고는 틱톡 혹은 유튜브중 원하는대로 참조.<br>
+          영상 상하 스와이핑,<br>
+          좋아요! 즐겨찾기 버튼 및 기능<br>          
+          클릭시 영상 멈춤, 다시 클릭시 영상 재생<br>
+          스와이핑 후 돌아올시 멈추었던 시점부터 재생<br>
+          더블 클릭시 하트(좋아요)<br>
+          공유하기 기능(레이어까지)<br>
+          즐겨찾기 영상만 따로 모아보기<br>
+          재생 완료 시 자동 스와이핑
         </p>
-      </div>             
+      </div>
+      <h2>사전 작업...</h2>
+      <div class="description">
+        <p><strong>swiper :  </strong><br>
+          swiper를 활용해 다양한 슬라이드 구현
+        </p>               
+        <p>swiper change 이벤트 활용</p>                  
+      </div>   
+      <div class="description">
+        <p><strong>컴포넌트 만들기 </strong><br>
+         자주 사용할 컴포넌트를 플러그인으로 등록</p>          
+      </div>               
       <div class="description">
         <p><strong>버튼 컴포넌트: </strong><br>
           버튼 태그에 props로 크기, 색상,아이콘,버튼명을 전달하고 클릭 이벤트등을 부모 컴포넌트에 emit을 해야 한다. 
         </p>    
-        <p>*** 아이콘이 있는 경우, 아이콘이 svg path인 경우 등</p>          
+        <p>좋아요, 즐겨찾기 버튼 구현</p>          
       </div>       
-      <div class="description">
-        <p><strong>input: </strong><br>
-          input 을 컴포넌트로 구현 한다. 
-        </p>               
-        <p>input 컴포넌트는 text,password 타입을 정할수 있어야 한다.</p>
-        <p>input 에 대한 안내문구 , 에러 메시지, label 혹은 title 로 기본 구성한다.</p>
-        <p>*** 가능하면 유효성 체크를 해서 오류 시 에러문구 노출</p>
-      </div>       
-      <div class="description">
-        <p><strong>select: </strong><br>
-          select를 컴포넌트로 구현 한다. option 값을 배열로 전달한다.
-        </p>                       
-        <p>select 에 대한 안내문구, 에러 메시지, label 혹은 title 로 기본 구성한다.</p>
-        <p>값이 바뀌였을때 변경된 value를 바인딩한다.</p>
-        <p>***v-model,emit 등을 활용해볼수 있다.</p>  
-      </div>        
       <div class="description">
         <p><strong>모달창 :  </strong><br>
           버튼 클릭시 모달창 호출/배경 딤처리, 윈도우 스크롤 막기 등 기능 구현,
         </p>               
         <p>모달창의 제목등은 props로 전달한다.</p>  
-        <p>*** Teleport, slot등을 활용해볼수 있다.</p>  
+        <p>Teleport, slot등을 활용해볼수 있다.</p>  
       </div> 
+
       <div class="description">
-        <p><strong>swiper :  </strong><br>
-          swiper를 활용해 다양한 슬라이드 구현
+        <p><strong>input: </strong><br>
+          input 을 컴포넌트로 구현 한다. 
         </p>               
-        <p>*** swiper change 이벤트가 발생할때 애니메이션 효과 구현</p>                  
-      </div>       
-      <div class="description">
-        <p><strong>스크롤 이벤트 :  </strong><br>
-          window scroll 이벤트 발생시 헤더 고정 혹은 간단한 인터럭션 구현, 예) 스크롤 탑 버튼
-        </p>               
-        <p>mounted 등 활용할수 있다.</p>                  
-      </div>                
+        <p>input 컴포넌트는 text,password 타입을 정할수 있어야 한다.</p>
+        <p>로그인, 회원가입을 구현한다.</p>
+        <p>v-model등 활용,</p>
+      </div> 
+              
       <div class="description">
         <p><strong>API 활용 :  </strong><br>
-         무료 API를 활용해, ui구성
+          영화 예고편 api를 활용해 영상 불러오기
         </p>               
-        <p>모달창의 제목등은 props로 전달한다.</p>          
-        <p>/api 폴더 참고 && key값은 개인별 신청</p>     
-      </div>        
+      </div>  
+
       <h2>참고사항</h2>
       <h2>버전별 차이점</h2>
       <div class="description">
