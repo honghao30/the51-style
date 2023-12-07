@@ -5,6 +5,8 @@
       <div class="description">
         <p>git clone https://github.com/honghao30/the51-style.git</p>
         <p>Vue3.3.4, vuetify : 3.4.0, element-plus: 2.4.1, swiper: 6.4.6</p>   
+        <p>cd 폴더</p>
+        <p>npm install</p>
         <p>
           
           여러버전의 node 가 필요하기에 nvm 필요할수 있음<br>
