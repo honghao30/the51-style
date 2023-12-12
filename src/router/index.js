@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import home from "@/views/main/main.vue";
+import shots from "@/baejh/views/Shots.vue";
 
 // 라우터 
 const routes = [
@@ -7,6 +8,11 @@ const routes = [
         path: "/",
         name: "home",
         component: home,
+    },
+    {
+        path: "/shots",
+        name: "shots",
+        component: shots,
     }   
 ]
 // 라우터 생성

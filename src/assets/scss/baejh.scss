@@ -1,0 +1,54 @@
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.phone-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.phone {
+  width: 360px;
+  height: 720px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.screen {
+  width: 360px;
+  height: 100%;
+}
+
+.button-bar {
+  position: fixed;
+  top: 0;
+  margin: 840px 0 0 310px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  
+  .base-button--comments {
+    /* 댓글 버튼 */
+    margin-top: 3px;
+  }
+}
+
+
+.navigation-bar {
+  position: absolute;
+  background-color: gray;
+  width: 360px;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  .base-button {
+    /* 기본 버튼 스타일 */
+    padding: 30px;
+    cursor: pointer;
+    border: 0;
+  }
+}
