@@ -13,11 +13,12 @@
     "element-plus": "^2.4.1",
     "sass": "^1.69.5",
     "sass-loader": "^10.4.1",
-    "swiper": "^6.4.6",
+    "swiper": "^6.8.4",
     "v-click-outside": "^3.2.0",
     "vue": "^3.3.4",
     "vue-router": "^4.2.5",
-    "vuetify": "^3.4.0"
+    "vuetify": "^3.4.0",
+    "youtube-iframe": "^1.0.3"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.4.0",
