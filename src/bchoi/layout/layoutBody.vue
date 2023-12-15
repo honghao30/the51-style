@@ -70,97 +70,36 @@
   </div>
   <div class="container container--bottom-util">
     <div class="btn-wrap">
-      <!-- <My-btn btnType="btn-text-default" btnName="홈" @click="goHeme"> </My-btn>
-      <My-btn btnType="iconOnly" btnName="업로드" iconNme="icon-heart">
-        <template #svgicon> </template>
-      </My-btn>
-      <My-btn btnType="iconOnly" btnName="마이페이지" iconNme="icon-heart">
-        <template #svgicon> </template>
-      </My-btn> -->
-      <btnComponent
-        btnType="text"
-        btnName="Home"
-        btnTag="button"
-      ></btnComponent>
+      <btnComponent btnType="text" btnName="Home" />
       <btnComponent
         btnType="popup"
         btnName="Upload"
-        btnTag="button"
-        popId="#pop1"
-      ></btnComponent>
-      <btnComponent
-        btnType="text"
-        btnName="My Page"
-        btnTag="button"
-      ></btnComponent>
-      <!--       
-      <div
-        :class="`${
-          bottomUtilBtn[0].href
-            ? 'btn-wrap__btn btn-wrap__btn--popup'
-            : 'btn-wrap__btn'
-        }`"
-      >
-        <a href="#" class="btn btn-wrap__btn--text">
-          <span class="">Home</span>
-        </a>
-      </div>
-      <div
-        :class="`${
-          bottomUtilBtn[1].href
-            ? 'btn-wrap__btn btn-wrap__btn--popup'
-            : 'btn-wrap__btn'
-        }`"
-      >
-        <button
-          :data-href="bottomUtilBtn[1].href"
-          class="btn btn-wrap__btn--text btn-wrap__btn--popup"
-          @click="btnPopup(bottomUtilBtn[1].href)"
-        >
-          <span class="">Upload</span>
-        </button>
-      </div>
-      <div
-        :class="`${
-          bottomUtilBtn[2].href
-            ? 'btn-wrap__btn btn-wrap__btn--popup'
-            : 'btn-wrap__btn'
-        }`"
-      >
-        <button class="btn btn-wrap__btn--text">
-          <span class="">My Page</span>
-        </button>
-      </div> -->
+        popupClass="pop01"
+        @click="btnPopup('pop01')"
+      />
+      <btnComponent btnType="text" btnName="My Page" />
     </div>
   </div>
-  <div class="container container--popup">
-    <div :class="`popup ${popupAll[0].popupType}`" id="pop1">
-      <div class="popup__inner">
-        <div class="popup__body">
-          <p>test popup #pop1</p>
-        </div>
-        <div class="popup__util">
-          <button
-            class="popup__util__btn popup__util__btn--close"
-            @click="btnCloasePopup(bottomUtilBtn.href)"
-          >
-            <span class="A11y">close</span>
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="dim"></div>
-  </div>
+  <!-- popupComponent option 
+        popupType : modal, layer-bottom 
+  -->
+  <popupComponent
+    popupType="layer-bottom"
+    popupClass="pop01"
+    popupContent="test01"
+    @click="btnClosePopup('pop01')"
+  />
 </template>
 
 <script setup>
-import { ref, onMounted, computed, defineComponent, reactive } from 'vue'
+import { ref } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import SwiperCore, { Mousewheel, A11y } from 'swiper'
+import btnComponent from '@/bchoi/layout/btnComponent.vue'
+import popupComponent from '@/bchoi/layout/popup.vue'
 import 'swiper/swiper.scss'
-import btnComponent from '@/bchoi/layout/iconBtn.vue'
-
 SwiperCore.use([Mousewheel, A11y])
+
 const slideItemData = ref([
   {
     type: 'img',
@@ -251,33 +190,27 @@ const slideItemData = ref([
   },
 ])
 
-const bottomUtilBtn = ref([
-  {
-    btnName: 'home',
-  },
-  {
-    btnName: 'upload',
-    href: '#pop1',
-    popupType: 'modal',
-  },
-  {
-    btnName: 'MyPage',
-  },
-])
-
-const popupAll = ref([
-  {
-    popupType: 'modal',
-    popupName: 'pop01',
-  },
-])
-
 const onSwiper = (swiper) => {
   console.log('onSwiper')
 }
 const onSlideChange = (swiper) => {
   console.log('slide change')
-  //   players[mySwiper.previousIndex].pauseVideo()
+}
+
+function btnPopup(target) {
+  const targetContainer = document.querySelector('.container--popup')
+  const openTarget = targetContainer.querySelector('.' + target)
+
+  targetContainer.classList.add('active')
+  openTarget.classList.add('active')
+}
+
+function btnClosePopup(target, targetWrap) {
+  const closeTarget = document.querySelector('.' + target)
+  const targetContainer = document.querySelector('.container--popup')
+
+  targetContainer.classList.remove('active')
+  closeTarget.classList.remove('active')
 }
 
 function btnIsActive(isActive, cnt) {
@@ -298,17 +231,6 @@ function btnIsActive(isActive, cnt) {
     isActive === true
     return isActive
   }
-}
-
-function btnPopup(href) {
-  const popupId = document.querySelector(href)
-  const popupContainer = popupId.closest('.container--popup')
-  popupContainer.classList.add('active')
-  popupId.classList.add('active')
-}
-
-function btnCloasePopup(href) {
-  console.log('close', href)
 }
 </script>
 <style lang="scss">
@@ -446,54 +368,13 @@ function btnCloasePopup(href) {
       &__btn {
         width: 33.3%;
         text-align: center;
-        &--text {
+        .btn {
           span {
             display: block;
             padding: 5px 0;
             color: #fff;
           }
         }
-      }
-    }
-  }
-  &--popup {
-    display: none;
-    .dim {
-      display: none;
-    }
-    &.active {
-      position: fixed;
-      left: 50%;
-      top: 0;
-      transform: translateX(-50%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      max-width: 750px;
-      height: 100%;
-      z-index: 1;
-      .dim {
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-      }
-    }
-    .popup {
-      display: none;
-      &.active {
-        display: block;
-        z-index: 1;
-      }
-      &__inner {
-        position: relative;
-        padding: 20px;
-        background: #fff;
-        border-radius: 5px;
       }
     }
   }
