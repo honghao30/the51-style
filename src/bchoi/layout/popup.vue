@@ -35,7 +35,8 @@ const props = defineProps({
 </script>
 
 <style lang="scss">
-// @import '@/assets/scss/common/index.scss';
+$desktop: 'min-width : 769px';
+
 .container {
   &--popup {
     display: none;
@@ -59,6 +60,18 @@ const props = defineProps({
         padding: 100px;
         .popup {
           max-height: 500px;
+        }
+      }
+      &.container--pop-modal {
+        padding: 50px;
+        @media ($desktop) {
+          padding: 200px;
+        }
+        .popup {
+          max-height: 150px;
+          @media ($desktop) {
+            max-height: 200px;
+          }
         }
       }
       &.container--pop-layer-bottom {
@@ -92,11 +105,14 @@ const props = defineProps({
       }
       &__inner {
         position: relative;
-        padding: 60px 20px;
+        padding: 35px;
         background: #fff;
         border-radius: 5px;
         width: 100%;
         height: 100%;
+        @media ($desktop) {
+          padding: 40px;
+        }
       }
       &_body {
         p {
@@ -108,10 +124,16 @@ const props = defineProps({
         &__btn {
           &--close {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 30px;
-            height: 30px;
+            top: 11px;
+            right: 11px;
+            width: 15px;
+            height: 15px;
+            @media ($desktop) {
+              top: 10px;
+              right: 10px;
+              width: 20px;
+              height: 20px;
+            }
             &::before {
               display: block;
               content: '';
