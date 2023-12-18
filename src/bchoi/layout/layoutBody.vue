@@ -91,7 +91,7 @@ const slideItemData = ref([
         btnType: 'icon',
         btnName: 'share',
         btnCnt: '0',
-        shareLink: 'https://swiperjs.com/',
+        shareLink: 'https://github.com/honghao30/the51-style',
         isActive: false,
       },
     ],
@@ -173,8 +173,12 @@ function slideBtnClick(target) {
     console.log('btn target:', target.btnName)
     // layer popup - comment
   } else if (target.btnName == 'share') {
-    console.log('btn target:', target.btnName)
     // link copy
+    let btnShareLink = target.shareLink
+    navigator.clipboard.writeText(btnShareLink).then(() => {
+      alert('주소가 복사되었습니다!')
+      console.log(btnShareLink)
+    })
   }
 }
 // dom 직접선택 X, ref([]) t/f 로 적용필요
