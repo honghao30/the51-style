@@ -4,42 +4,39 @@
   </button>
 </template>
 
-<script>
-export default {
-  props: {
-    type: {
-      type: String,
-      default: "default", // 다양한 타입을 지원할 수 있습니다. 예: primary, secondary, danger 등
-    },
-    isActive: {
-      type: Boolean,
-      default: false,
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
+<script setup>
+import { ref } from 'vue';
+
+const props = defineProps({
+  type: {
+    type: String,
+    default: 'default',
   },
-  computed: {
-    computedClasses() {
-      return [
-        'base-button',
-        `base-button--${this.type}`,
-        {
-          'active': this.isActive,
-        },
-      ];
-    },
+  isActive: {
+    type: Boolean,
+    default: false,
   },
-  methods: {
-    toggle() {
-      if (!this.disabled) {
-        this.$emit('toggle', !this.isActive);
-      }
-    },
+  disabled: {
+    type: Boolean,
+    default: false,
   },
+});
+
+const computedClasses = ref([
+  'base-button',
+  `base-button--${props.type}`,
+  {
+    'active': props.isActive,
+  },
+]);
+
+const toggle = () => {
+  if (!props.disabled) {
+    emit('toggle', !props.isActive);
+  }
 };
 </script>
+
 
 <style scoped>
   .base-button {

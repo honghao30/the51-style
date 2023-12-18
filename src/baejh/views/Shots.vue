@@ -3,7 +3,7 @@
     <div class="phone">
       <div class="screen">
         <div class="video">
-          <swipe></swipe>
+          <swipe :videos="videoList"></swipe>
         </div>
       <div class="button-bar">
         <base-button type="like" :is-active="isLiked" @toggle="handleToggle"></base-button>
@@ -22,26 +22,17 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import BaseButton from "@/baejh/components/BaseButton.vue";
 import swipe from "@/baejh/components/Swipe.vue";
-import '@/assets/scss/baejh.scss'
+import videoList from "@/baejh/components/videoList.js";
+import '@/assets/scss/baejh.scss';
+import { ref } from 'vue';
 
-export default {
-  components: {
-    BaseButton,
-    swipe
-  },
-  data() {
-    return {
-      isLiked: false,
-      isDisabled: false, // 비활성화 여부를 원하는 대로 설정하세요
-    };
-  },
-  methods: {
-    handleToggle(isActive) {
-      this.isLiked = isActive;
-    },
-  },
+const isLiked = ref(false);
+const isDisabled = ref(false);
+
+const handleToggle = (isActive) => {
+  isLiked.value = isActive;
 };
 </script>

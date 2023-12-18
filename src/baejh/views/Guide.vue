@@ -6,26 +6,18 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import BaseButton from "@/baejh/components/BaseButton.vue";
+import { ref } from 'vue';
 
-export default {
-  components: {
-    BaseButton,
-  },
-  data() {
-    return {
-      isLiked: false,
-      isDisabled: false, // 비활성화 여부를 원하는 대로 설정하세요
-    };
-  },
-  methods: {
-    handleToggle(isActive) {
-      this.isLiked = isActive;
-    },
-  },
+const isLiked = ref(false);
+const isDisabled = ref(false);
+
+const handleToggle = (isActive) => {
+  isLiked.value = isActive;
 };
 </script>
+
 <style scoped>
   div {
     background-color: gray;
