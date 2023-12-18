@@ -17,7 +17,8 @@
             :btnType="btnItem.btnType"
             :btnName="btnItem.btnName"
             :btnCnt="btnItem.btnCnt"
-            :btnEvent="btnItem.isEvent"
+            :isActive="btnItem.isActive"
+            @click="slideBtnClick(btnItem)"
           />
         </div>
         <slideInfo
@@ -50,7 +51,7 @@
   <popupComponent
     popupType="layer-bottom"
     popupClass="pop01"
-    popupContent="test01"
+    popupContent="Update Click popup"
     @click="btnClosePopup('pop01')"
   />
 </template>
@@ -66,7 +67,7 @@ import popupComponent from '@/bchoi/layout/popup.vue'
 import 'swiper/swiper.scss'
 SwiperCore.use([Mousewheel, A11y])
 
-const btnEvent = ref([
+const slideItemData = ref([
   {
     type: 'video',
     title: '안녕하세요 이제 시작해주세요1',
@@ -77,21 +78,21 @@ const btnEvent = ref([
       {
         btnType: 'icon',
         btnName: 'like',
-        btnCnt: '0',
-        isEvent: true,
+        btnCnt: '1',
+        isActive: true,
       },
       {
         btnType: 'icon',
         btnName: 'comment',
         btnCnt: '0',
-        isEvent: true,
+        isActive: false,
       },
       {
         btnType: 'icon',
         btnName: 'share',
         btnCnt: '0',
         shareLink: 'https://swiperjs.com/',
-        isEvent: true,
+        isActive: false,
       },
     ],
   },
@@ -105,21 +106,21 @@ const btnEvent = ref([
       {
         btnType: 'icon',
         btnName: 'like',
-        btnCnt: '0',
-        isEvent: true,
+        btnCnt: '1',
+        isActive: true,
       },
       {
         btnType: 'icon',
         btnName: 'comment',
         btnCnt: '0',
-        isEvent: true,
+        isActive: true,
       },
       {
         btnType: 'icon',
         btnName: 'share',
         btnCnt: '0',
         shareLink: 'https://swiperjs.com/',
-        isEvent: true,
+        isActive: true,
       },
     ],
   },
@@ -135,34 +136,47 @@ const btnEvent = ref([
         btnName: 'like',
         btnCnt: '0',
         event: 'likeEvent',
-        isEvent: false,
+        isActive: false,
       },
       {
         btnType: 'icon',
         btnName: 'comment',
         btnCnt: '0',
-        isEvent: false,
+        isActive: false,
       },
       {
         btnType: 'icon',
         btnName: 'share',
         btnCnt: '0',
         shareLink: 'https://swiperjs.com/',
-        isEvent: false,
+        isActive: false,
       },
     ],
   },
 ])
 
-const btnRefLis = ref([])
-
-const onSwiper = (swiper) => {
-  console.log('onSwiper')
+function slideBtnClick(target) {
+  if (target.btnName == 'like') {
+    // toggle
+    console.log('btn target:', target.btnName)
+    if (target.isActive == true) {
+      target.isActive = false
+      target.btnCnt--
+      if (target.btnCnt < 1 || target.isActive == false) {
+        target.btnCnt = 0
+      }
+    } else {
+      target.isActive = true
+      target.btnCnt++
+    }
+  } else if (target.btnName == 'comment') {
+    console.log('btn target:', target.btnName)
+    // layer popup - comment
+  } else if (target.btnName == 'share') {
+    console.log('btn target:', target.btnName)
+    // link copy
+  }
 }
-const onSlideChange = (swiper) => {
-  console.log('slide change')
-}
-
 // dom 직접선택 X, ref([]) t/f 로 적용필요
 function btnPopup(target) {
   const targetContainer = document.querySelector('.container--popup')

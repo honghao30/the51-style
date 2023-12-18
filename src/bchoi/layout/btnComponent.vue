@@ -1,18 +1,23 @@
 <template>
   <div :class="`btn-wrap__btn btn-wrap__btn--${btnType}`">
-    <button href="#" :class="`btn btn-wrap__btn--${btnType}--${btnName}`">
-      <span v-if="btnName" :class="`${!btnCnt ? 'btn-wrap__text' : 'A11y'}`">{{
-        btnName
-      }}</span>
+    <button
+      href="#"
+      :class="`btn btn-wrap__btn--${btnType}--${btnName} ${
+        isActive == true ? 'btn-wrap__btn--isActive' : 'test'
+      }`"
+    >
+      <span
+        v-if="btnName"
+        :class="`${btnType !== 'icon' ? 'btn-wrap__text' : 'A11y'}`"
+        >{{ btnName }}</span
+      >
     </button>
-    <span v-if="btnCnt" class="btn-wrap__cnt">{{ btnCnt }} </span>
+    <span v-if="btnType == 'icon'" class="btn-wrap__cnt">{{ btnCnt }} </span>
   </div>
 </template>
 
 <script setup>
 import { defineProps } from 'vue'
-import { directive as vClickOutside } from 'click-outside-vue3'
-import { reactive } from 'vue'
 const props = defineProps({
   btnType: {
     type: String,
@@ -28,6 +33,10 @@ const props = defineProps({
   },
   popId: {
     type: String,
+    default: '',
+  },
+  isActive: {
+    type: Boolean,
     default: '',
   },
 })
@@ -91,8 +100,10 @@ $desktop: 'min-width : 769px';
                 center / contain no-repeat;
             }
             &.btn-wrap__btn--isActive {
-              background: url('/src/assets/images/icon/btn-icon-like-fill.svg')
-                center / contain no-repeat;
+              &:before {
+                background: url('/src/assets/images/icon/btn-icon-like-fill.svg')
+                  center / contain no-repeat;
+              }
             }
           }
           &--comment {
