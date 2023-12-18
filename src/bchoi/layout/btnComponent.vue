@@ -3,7 +3,7 @@
     href="#"
     :class="`btn btn-wrap__btn--${btnType}--${btnName} ${
       isActive == true ? 'btn-wrap__btn--isActive' : ''
-    } ${ref !== true ? 'test2' : ''}`"
+    } `"
   >
     <span
       v-if="btnName"
@@ -37,7 +37,7 @@ const props = defineProps({
     type: Boolean,
     default: '',
   },
-  ref: {
+  isVisible: {
     type: Boolean,
     default: '',
   },

@@ -21,7 +21,7 @@
             :ref="btnItem.isActive"
             @click="slideBtnClick(btnItem)"
           /> -->
-          <div
+          <!-- <div
             v-for="btnItem in item.btn"
             :class="`btn-wrap__btn btn-wrap__btn--${btnItem.btnType}`"
           >
@@ -31,6 +31,43 @@
               :btnCnt="btnItem.btnCnt"
               :isActive="btnItem.isActive"
               @click="slideBtnClick(btnItem)"
+            />
+          </div> -->
+          <div
+            class="btn-wrap__btn btn-wrap__btn--icon"
+            v-if="item.usedBtnLike"
+          >
+            <btnComponent
+              btnType="icon"
+              btnName="like"
+              btnCnt="1"
+              isActive="true"
+              @click="slideBtnClick(btnItem)"
+            />
+          </div>
+          <div
+            class="btn-wrap__btn btn-wrap__btn--icon"
+            v-if="item.usedBtnComment"
+          >
+            <btnComponent
+              btnType="icon"
+              btnName="comment"
+              btnCnt="0"
+              isActive="false"
+              @click="slideBtnClick(btnItem)"
+            />
+          </div>
+          <div
+            class="btn-wrap__btn btn-wrap__btn--icon"
+            v-if="item.usedBtnShare"
+          >
+            <btnComponent
+              btnType="icon"
+              btnName="share"
+              btnCnt="0"
+              isActive="false"
+              popupClass="shareLayer"
+              @click="togglePopup"
             />
           </div>
         </div>
@@ -45,27 +82,36 @@
   <div class="container container--bottom-util">
     <div class="btn-wrap">
       <div class="btn-wrap__btn btn-wrap__btn--text">
-        <btnComponent btnType="text" btnName="Home" :ref="false" />
+        <btnComponent btnType="text" btnName="Home" />
       </div>
       <div class="btn-wrap__btn btn-wrap__btn--text">
         <btnComponent
           btnType="popup"
           btnName="Upload"
           :popupClass="pop01"
-          @click="isPopup"
-          :ref="false"
+          @click="togglePopup"
         />
       </div>
       <div class="btn-wrap__btn btn-wrap__btn--text">
-        <btnComponent btnType="text" btnName="My Page" :ref="false" />
+        <btnComponent btnType="text" btnName="My Page" />
       </div>
     </div>
   </div>
   <popupComponent
     popupType="layer-bottom"
-    popupClass="pop01"
+    popupClass="shareLayer"
     popupContent="Update Click popup"
-    @click="btnClosePopup('pop01')"
+    :visible="isBottomPopupVisible"
+    @close="closePopup"
+    ref="popupRef"
+  />
+  <popupComponent
+    popupType="modal"
+    popupClass="pop02"
+    popupContent="share link!"
+    :visible="isPopupVisible"
+    @close="closePopup"
+    ref="popupRef"
   />
 </template>
 
@@ -80,29 +126,98 @@ import popupComponent from '@/bchoi/layout/popup.vue'
 import 'swiper/swiper.scss'
 SwiperCore.use([Mousewheel, A11y])
 
-const test = ref([])
-console.log('test', test)
-console.log('test value', test.value)
-
-// if (test.value == false) {
-//   console.log('test.value : false')
-//   test.value = true
-// } else {
-//   console.log('test.value : true')
-//   test.value = false
-// }
-
-const isPopup = () => {
-  console.log('test:', test)
-  if (test == true) {
-    test.value = false
-    console.log('test:', test.value)
-  } else {
-    test.value = true
-    console.log('test:', test.value)
-  }
-}
-// clickBtnTest()
+// 1- 버튼수정 필요
+// const slideItemData = ref([
+//   {
+//     type: 'video',
+//     title: '안녕하세요 이제 시작해주세요1',
+//     src: '/video/1.mp4',
+//     author: 'KKK',
+//     date: '2023-12-12',
+//     btn: [
+//       {
+//         btnType: 'icon',
+//         btnName: 'like',
+//         btnCnt: '1',
+//         isActive: true,
+//       },
+//       {
+//         btnType: 'icon',
+//         btnName: 'comment',
+//         btnCnt: '0',
+//         isActive: false,
+//       },
+//       {
+//         btnType: 'icon',
+//         btnName: 'share',
+//         btnCnt: '0',
+//         popupClass: 'shareLayer',
+//         shareLink: 'https://github.com/honghao30/the51-style',
+//         shareType: ['link', 'kakao'],
+//         isActive: false,
+//       },
+//     ],
+//   },
+//   {
+//     type: 'img',
+//     title: '안녕하세요 이제 시작해주세요2',
+//     src: '/src/assets/images/main/main02.jpg',
+//     author: 'KKK',
+//     date: '2023-12-13',
+//     btn: [
+//       {
+//         btnType: 'icon',
+//         btnName: 'like',
+//         btnCnt: '1',
+//         isActive: true,
+//       },
+//       {
+//         btnType: 'icon',
+//         btnName: 'comment',
+//         btnCnt: '0',
+//         isActive: true,
+//       },
+//       {
+//         btnType: 'icon',
+//         btnName: 'share',
+//         btnCnt: '0',
+//         popupClass: 'shareLayer',
+//         shareLink: 'https://swiperjs.com/',
+//         isActive: false,
+//       },
+//     ],
+//   },
+//   {
+//     type: 'video',
+//     title: '안녕하세요 이제 시작해주세요3',
+//     src: '/video/3.mp4',
+//     author: 'KKK',
+//     date: '2023-12-14',
+//     btn: [
+//       {
+//         btnType: 'icon',
+//         btnName: 'like',
+//         btnCnt: '0',
+//         event: 'likeEvent',
+//         isActive: false,
+//       },
+//       {
+//         btnType: 'icon',
+//         btnName: 'comment',
+//         btnCnt: '0',
+//         isActive: false,
+//       },
+//       {
+//         btnType: 'icon',
+//         btnName: 'share',
+//         btnCnt: '0',
+//         popupClass: 'shareLayer',
+//         shareLink: 'https://swiperjs.com/',
+//         isActive: false,
+//       },
+//     ],
+//   },
+// ])
 
 const slideItemData = ref([
   {
@@ -111,29 +226,12 @@ const slideItemData = ref([
     src: '/video/1.mp4',
     author: 'KKK',
     date: '2023-12-12',
-    btn: [
-      {
-        btnType: 'icon',
-        btnName: 'like',
-        btnCnt: '1',
-        isActive: true,
-      },
-      {
-        btnType: 'icon',
-        btnName: 'comment',
-        btnCnt: '0',
-        isActive: false,
-      },
-      {
-        btnType: 'icon',
-        btnName: 'share',
-        btnCnt: '0',
-        popupClass: 'shareLayer',
-        shareLink: 'https://github.com/honghao30/the51-style',
-        shareType: ['link', 'kakao'],
-        isActive: false,
-      },
-    ],
+    usedBtnLike: true,
+    usedBtnComment: true,
+    usedBtnShare: true,
+    likeCnt: 0,
+    commentCnt: 0,
+    shareCnt: 0,
   },
   {
     type: 'img',
@@ -141,28 +239,12 @@ const slideItemData = ref([
     src: '/src/assets/images/main/main02.jpg',
     author: 'KKK',
     date: '2023-12-13',
-    btn: [
-      {
-        btnType: 'icon',
-        btnName: 'like',
-        btnCnt: '1',
-        isActive: true,
-      },
-      {
-        btnType: 'icon',
-        btnName: 'comment',
-        btnCnt: '0',
-        isActive: true,
-      },
-      {
-        btnType: 'icon',
-        btnName: 'share',
-        btnCnt: '0',
-        popupClass: 'shareLayer',
-        shareLink: 'https://swiperjs.com/',
-        isActive: false,
-      },
-    ],
+    usedBtnLike: true,
+    usedBtnComment: true,
+    usedBtnShare: true,
+    likeCnt: 0,
+    commentCnt: 0,
+    shareCnt: 0,
   },
   {
     type: 'video',
@@ -170,32 +252,29 @@ const slideItemData = ref([
     src: '/video/3.mp4',
     author: 'KKK',
     date: '2023-12-14',
-    btn: [
-      {
-        btnType: 'icon',
-        btnName: 'like',
-        btnCnt: '0',
-        event: 'likeEvent',
-        isActive: false,
-      },
-      {
-        btnType: 'icon',
-        btnName: 'comment',
-        btnCnt: '0',
-        isActive: false,
-      },
-      {
-        btnType: 'icon',
-        btnName: 'share',
-        btnCnt: '0',
-        popupClass: 'shareLayer',
-        shareLink: 'https://swiperjs.com/',
-        isActive: false,
-      },
-    ],
+    usedBtnLike: true,
+    usedBtnComment: true,
+    usedBtnShare: true,
+    likeCnt: 0,
+    commentCnt: 0,
+    shareCnt: 0,
   },
 ])
 
+const isBottomPopupVisible = ref(false)
+// const isPopupVisible = ref(false)
+
+// 팝업 t/f 토글로 노출 비노출
+const togglePopup = () => {
+  isBottomPopupVisible.value = !isBottomPopupVisible.value
+}
+
+// 팝업 닫기
+const closePopup = () => {
+  isBottomPopupVisible.value = false
+}
+
+// 좋아요 버튼
 function slideBtnClick(target) {
   // toggle
   console.log('slideBtnClick')
@@ -223,23 +302,6 @@ function slideBtnClick(target) {
       console.log(btnShareLink)
     })
   }
-}
-
-// dom 직접선택 X, ref([]) t/f 로 적용필요
-function btnPopup(target) {
-  const targetContainer = document.querySelector('.container--popup')
-  const openTarget = targetContainer.querySelector('.' + target)
-
-  targetContainer.classList.add('active')
-  openTarget.classList.add('active')
-}
-
-function btnClosePopup(target) {
-  const closeTarget = document.querySelector('.' + target)
-  const targetContainer = document.querySelector('.container--popup')
-
-  targetContainer.classList.remove('active')
-  closeTarget.classList.remove('active')
 }
 </script>
 <style lang="scss">

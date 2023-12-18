@@ -1,18 +1,25 @@
 <template>
   <!-- popupComponent 
         .container--popup > .popup > .popup__inner > .popup__body + .popup__util > ... 
-        
-        ! option
+        !! option
         popupType : modal, layer-bottom 
   -->
-  <div :class="`container container--popup container--pop-${popupType}`">
-    <div :class="`popup ${popupClass}`">
+  <div
+    v-if="visible"
+    :class="`container container--popup container--pop-${popupType} ${
+      visible === true ? 'active' : ''
+    }`"
+  >
+    <div :class="`popup ${popupClass} ${visible === true ? 'active' : ''}`">
       <div class="popup__inner">
         <div class="popup__body">
           <p>{{ popupContent }}</p>
         </div>
         <div class="popup__util">
-          <button class="popup__util__btn popup__util__btn--close">
+          <button
+            class="popup__util__btn popup__util__btn--close"
+            @click="closePopup"
+          >
             <span class="A11y">close</span>
           </button>
         </div>
@@ -22,8 +29,9 @@
   </div>
 </template>
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps, defineEmits } from 'vue'
 // import '@/assets/scss/common/index.scss'
+
 const props = defineProps({
   popupType: {
     type: String,
@@ -37,7 +45,17 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  visible: {
+    type: String,
+    default: '',
+  },
 })
+
+const emit = defineEmits()
+const closePopup = () => {
+  emit('close')
+  console.log('close popup')
+}
 </script>
 
 <style lang="scss">
