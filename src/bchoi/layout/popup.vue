@@ -1,4 +1,10 @@
 <template>
+  <!-- popupComponent 
+        .container--popup > .popup > .popup__inner > .popup__body + .popup__util > ... 
+        
+        ! option
+        popupType : modal, layer-bottom 
+  -->
   <div :class="`container container--popup container--pop-${popupType}`">
     <div :class="`popup ${popupClass}`">
       <div class="popup__inner">

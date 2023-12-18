@@ -12,14 +12,27 @@
       <swiper-slide v-for="item in slideItemData">
         <slideContent :type="item.type" :src="item.src" :alt="item.title" />
         <div class="btn-wrap">
-          <btnComponent
+          <!-- <btnComponent
             v-for="btnItem in item.btn"
             :btnType="btnItem.btnType"
             :btnName="btnItem.btnName"
             :btnCnt="btnItem.btnCnt"
             :isActive="btnItem.isActive"
+            :ref="btnItem.isActive"
             @click="slideBtnClick(btnItem)"
-          />
+          /> -->
+          <div
+            v-for="btnItem in item.btn"
+            :class="`btn-wrap__btn btn-wrap__btn--${btnItem.btnType}`"
+          >
+            <btnComponent
+              :btnType="btnItem.btnType"
+              :btnName="btnItem.btnName"
+              :btnCnt="btnItem.btnCnt"
+              :isActive="btnItem.isActive"
+              @click="slideBtnClick(btnItem)"
+            />
+          </div>
         </div>
         <slideInfo
           :title="item.title"
@@ -31,23 +44,23 @@
   </div>
   <div class="container container--bottom-util">
     <div class="btn-wrap">
-      <btnComponent btnType="text" btnName="Home" />
-      <btnComponent
-        btnType="popup"
-        btnName="Upload"
-        popupClass="pop01"
-        @click="btnPopup('pop01')"
-      />
-      <btnComponent btnType="text" btnName="My Page" />
+      <div class="btn-wrap__btn btn-wrap__btn--text">
+        <btnComponent btnType="text" btnName="Home" :ref="false" />
+      </div>
+      <div class="btn-wrap__btn btn-wrap__btn--text">
+        <btnComponent
+          btnType="popup"
+          btnName="Upload"
+          :popupClass="pop01"
+          @click="isPopup"
+          :ref="false"
+        />
+      </div>
+      <div class="btn-wrap__btn btn-wrap__btn--text">
+        <btnComponent btnType="text" btnName="My Page" :ref="false" />
+      </div>
     </div>
   </div>
-
-  <!-- popupComponent 
-        .container--popup > .popup > .popup__inner > .popup__body + .popup__util > ... 
-        
-        ! option
-        popupType : modal, layer-bottom 
-  -->
   <popupComponent
     popupType="layer-bottom"
     popupClass="pop01"
@@ -66,6 +79,30 @@ import btnComponent from '@/bchoi/layout/btnComponent.vue'
 import popupComponent from '@/bchoi/layout/popup.vue'
 import 'swiper/swiper.scss'
 SwiperCore.use([Mousewheel, A11y])
+
+const test = ref([])
+console.log('test', test)
+console.log('test value', test.value)
+
+// if (test.value == false) {
+//   console.log('test.value : false')
+//   test.value = true
+// } else {
+//   console.log('test.value : true')
+//   test.value = false
+// }
+
+const isPopup = () => {
+  console.log('test:', test)
+  if (test == true) {
+    test.value = false
+    console.log('test:', test.value)
+  } else {
+    test.value = true
+    console.log('test:', test.value)
+  }
+}
+// clickBtnTest()
 
 const slideItemData = ref([
   {
@@ -91,7 +128,9 @@ const slideItemData = ref([
         btnType: 'icon',
         btnName: 'share',
         btnCnt: '0',
+        popupClass: 'shareLayer',
         shareLink: 'https://github.com/honghao30/the51-style',
+        shareType: ['link', 'kakao'],
         isActive: false,
       },
     ],
@@ -119,8 +158,9 @@ const slideItemData = ref([
         btnType: 'icon',
         btnName: 'share',
         btnCnt: '0',
+        popupClass: 'shareLayer',
         shareLink: 'https://swiperjs.com/',
-        isActive: true,
+        isActive: false,
       },
     ],
   },
@@ -148,6 +188,7 @@ const slideItemData = ref([
         btnType: 'icon',
         btnName: 'share',
         btnCnt: '0',
+        popupClass: 'shareLayer',
         shareLink: 'https://swiperjs.com/',
         isActive: false,
       },
@@ -156,8 +197,9 @@ const slideItemData = ref([
 ])
 
 function slideBtnClick(target) {
+  // toggle
+  console.log('slideBtnClick')
   if (target.btnName == 'like') {
-    // toggle
     console.log('btn target:', target.btnName)
     if (target.isActive == true) {
       target.isActive = false
@@ -173,7 +215,8 @@ function slideBtnClick(target) {
     console.log('btn target:', target.btnName)
     // layer popup - comment
   } else if (target.btnName == 'share') {
-    // link copy
+    target.isActive = true
+    // shareLayer(target)
     let btnShareLink = target.shareLink
     navigator.clipboard.writeText(btnShareLink).then(() => {
       alert('주소가 복사되었습니다!')
@@ -181,6 +224,7 @@ function slideBtnClick(target) {
     })
   }
 }
+
 // dom 직접선택 X, ref([]) t/f 로 적용필요
 function btnPopup(target) {
   const targetContainer = document.querySelector('.container--popup')

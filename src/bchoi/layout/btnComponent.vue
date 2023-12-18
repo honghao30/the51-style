@@ -1,19 +1,17 @@
 <template>
-  <div :class="`btn-wrap__btn btn-wrap__btn--${btnType}`">
-    <button
-      href="#"
-      :class="`btn btn-wrap__btn--${btnType}--${btnName} ${
-        isActive == true ? 'btn-wrap__btn--isActive' : 'test'
-      }`"
+  <button
+    href="#"
+    :class="`btn btn-wrap__btn--${btnType}--${btnName} ${
+      isActive == true ? 'btn-wrap__btn--isActive' : ''
+    } ${ref !== true ? 'test2' : ''}`"
+  >
+    <span
+      v-if="btnName"
+      :class="`${btnType !== 'icon' ? 'btn-wrap__text' : 'A11y'}`"
+      >{{ btnName }}</span
     >
-      <span
-        v-if="btnName"
-        :class="`${btnType !== 'icon' ? 'btn-wrap__text' : 'A11y'}`"
-        >{{ btnName }}</span
-      >
-    </button>
     <span v-if="btnType == 'icon'" class="btn-wrap__cnt">{{ btnCnt }} </span>
-  </div>
+  </button>
 </template>
 
 <script setup>
@@ -36,6 +34,10 @@ const props = defineProps({
     default: '',
   },
   isActive: {
+    type: Boolean,
+    default: '',
+  },
+  ref: {
     type: Boolean,
     default: '',
   },
@@ -79,18 +81,17 @@ $desktop: 'min-width : 769px';
           display: block;
           .btn {
             display: block;
-            width: 35px;
-            height: 35px;
-            @media ($desktop) {
-              width: 50px;
-              height: 50px;
-            }
+
             &:before {
               display: block;
               content: '';
               clear: both;
-              width: 100%;
-              height: 100%;
+              width: 35px;
+              height: 35px;
+              @media ($desktop) {
+                width: 50px;
+                height: 50px;
+              }
             }
           }
 
