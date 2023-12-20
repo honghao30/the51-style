@@ -5,22 +5,10 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, defineProps, defineEmits } from 'vue';
 
-const props = defineProps({
-  type: {
-    type: String,
-    default: 'default',
-  },
-  isActive: {
-    type: Boolean,
-    default: false,
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
-});
+const props = defineProps(['type', 'isActive', 'disabled']);
+const emit = defineEmits();
 
 const computedClasses = ref([
   'base-button',
@@ -31,12 +19,10 @@ const computedClasses = ref([
 ]);
 
 const toggle = () => {
-  if (!props.disabled) {
-    emit('toggle', !props.isActive);
-  }
+  console.log('Button clicked');
+  emit('toggle', !props.isActive);
 };
 </script>
-
 
 <style scoped>
   .base-button {
@@ -44,6 +30,7 @@ const toggle = () => {
     padding: 16px;
     cursor: pointer;
     border: 0;
+    width: 100%;
   }
 
   .base-button--like {
