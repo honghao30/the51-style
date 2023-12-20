@@ -13,7 +13,7 @@
     <div :class="`popup ${popupClass} ${visible === true ? 'active' : ''}`">
       <div class="popup__inner">
         <div class="popup__body">
-          <p>{{ popupContent }}</p>
+          <slot>slot popup content</slot>
         </div>
         <div class="popup__util">
           <button
@@ -78,12 +78,13 @@ $desktop: 'min-width : 769px';
       width: 100%;
       max-width: 750px;
       height: 100%;
-      z-index: 1;
+      z-index: 10;
       box-sizing: border-box;
-      &.container--pop-modal {
-        padding: 100px;
+      &.container--pop-full {
         .popup {
-          max-height: 500px;
+          &__inner {
+            border-radius: 0;
+          }
         }
       }
       &.container--pop-modal {

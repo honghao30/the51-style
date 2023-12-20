@@ -16,6 +16,7 @@
 
 <script setup>
 import { defineProps } from 'vue'
+
 const props = defineProps({
   btnType: {
     type: String,
@@ -34,11 +35,7 @@ const props = defineProps({
     default: '',
   },
   isActive: {
-    type: Boolean,
-    default: '',
-  },
-  isVisible: {
-    type: Boolean,
+    type: String,
     default: '',
   },
 })
@@ -59,6 +56,10 @@ $desktop: 'min-width : 769px';
     background-color: rgb(0, 0, 0);
   }
   &--slide {
+    &:hover .btn-wrap--media {
+      display: block;
+      background-color: red;
+    }
     .btn-wrap {
       position: absolute;
       right: 10px;
@@ -119,6 +120,31 @@ $desktop: 'min-width : 769px';
                 center / contain no-repeat;
             }
           }
+          &--play {
+            &::before {
+              background: url('/src/assets/images/icon/icon-media-player-play.svg')
+                center / contain no-repeat;
+            }
+          }
+          &--stop {
+            &::before {
+              background: url('/src/assets/images/icon/icon-media-player-pause.svg')
+                center / contain no-repeat;
+            }
+          }
+          &--search {
+            &::before {
+              background: url('/src/assets/images/icon/btn-icon-search.svg')
+                center / contain no-repeat;
+            }
+          }
+
+          &--setting {
+            &::before {
+              background: url('/src/assets/images/icon/btn-icon-setting.svg')
+                center / contain no-repeat;
+            }
+          }
         }
       }
       &__cnt {
@@ -127,6 +153,21 @@ $desktop: 'min-width : 769px';
         color: #fff;
         @media ($desktop) {
           font-size: 15px;
+        }
+      }
+      &--media {
+        display: none;
+        right: calc(50% - 100px);
+        bottom: calc(50% - 100px);
+        transform: translate(-50%, -50%);
+        .btn-wrap__btn--icon {
+          .btn:before {
+            width: 100px;
+            height: 100px;
+          }
+        }
+        &--active {
+          display: block;
         }
       }
     }
@@ -151,7 +192,7 @@ $desktop: 'min-width : 769px';
       width: 100%;
       height: 100%;
       &__btn {
-        width: 33.3%;
+        width: 25%;
         height: 100%;
         text-align: center;
         button {
@@ -161,6 +202,10 @@ $desktop: 'min-width : 769px';
             display: block;
             padding: 5px 0;
             color: #fff;
+            font-size: 12px;
+            @media ($desktop) {
+              font-size: 14px;
+            }
           }
         }
       }

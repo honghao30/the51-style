@@ -39,7 +39,7 @@ const props = defineProps({
       position: absolute;
       left: 0;
       bottom: 0;
-      background: rgba(0, 0, 0, 0.3);
+      // background: rgba(0, 0, 0, 0.3);
       box-sizing: border-box;
       width: 100%;
 
