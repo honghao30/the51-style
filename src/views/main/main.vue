@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <a href="../../baejh/views/Shots.vue">Shots</a>
+    <a href="/shots">Shots</a>
   </div>
 </template>
 <script setup>
