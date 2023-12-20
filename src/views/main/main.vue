@@ -1,6 +1,8 @@
 <template>
   <div class="main">
-    <a href="/shots">Shots</a>
+    <a>
+      <router-link to="/shots">Shots</router-link>
+    </a>
   </div>
 </template>
 <script setup>
